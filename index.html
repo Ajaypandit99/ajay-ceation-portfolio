@@ -2,39 +2,152 @@
 <html lang="hi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Creation | Ultra-Luxury Portfolio</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+   <title>Ajay Creation | Wedding Photography, Photo Editing, Photo Restoration & Album Designing</title>
+
+    <meta name="description"
+          content="Ajay Creation - Wedding Photography, Album Designing, Photo Restoration, Professional Photo Editing, Color Grading and Digital Creative Services.">
+
+    <meta name="keywords"
+          content="Ajay Creation, wedding photography, album designing, photo restoration, photo editing, color grading, wedding album, photography">
+
+    <meta name="author" content="Ajay Creation">
+
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title"
+          content="Ajay Creation | Photography & Digital Art">
+
+    <meta property="og:description"
+          content="Wedding Photography, Album Designing, Photo Restoration and Professional Photo Editing.">
+
+    <meta property="og:type" content="website">
+
+    <meta property="og:url"
+          content="https://ajaycreation.netlify.app/">
+
+    <meta name="theme-color" content="#050505">
+
+    <link rel="canonical"
+          href="https://ajaycreation.netlify.app/">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
     <style>
+
         :root {
             --gold: #D4AF37;
             --dark: #050505;
+            --orange: #f39c12;
         }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: var(--dark);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background: var(--dark);
             color: #fff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
         }
-        .luxury-font { font-family: 'Syncopate', sans-serif; }
-        
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        .luxury-font {
+            font-family: 'Syncopate', sans-serif;
+        }
+
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255,255,255,0.035);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.10);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.75);
         }
 
         .tilt-card {
-            transition: transform 0.3s ease-out;
+            transition: transform .3s ease,
+                        border-color .3s ease,
+                        box-shadow .3s ease;
             transform-style: preserve-3d;
         }
+
         .tilt-card:hover {
-            transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.02);
+            transform:
+                perspective(1000px)
+                rotateX(3deg)
+                rotateY(3deg)
+                scale(1.015);
         }
+
+        /* ================= MOBILE MENU ================= */
+
+        .mobile-menu {
+            position: fixed;
+            top: 82px;
+            left: 15px;
+            right: 15px;
+            z-index: 499;
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 14px 16px;
+            color: #ddd;
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            font-size: 12px;
+            font-family: 'Syncopate', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--gold);
+        }
+
+        .mobile-menu-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ================= BEFORE AFTER ================= */
 
         .ba-container {
             position: relative;
@@ -42,1044 +155,3554 @@
             height: 450px;
             overflow: hidden;
             border-radius: 20px;
+            touch-action: none;
+            user-select: none;
+            cursor: ew-resize;
         }
+
         .ba-image {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             background-size: cover;
             background-position: center;
         }
-        .ba-after { width: 50%; border-right: 3px solid var(--gold); z-index: 2; }
+
+        .ba-after {
+            width: 50%;
+            border-right: 3px solid var(--gold);
+            z-index: 2;
+        }
+
         .ba-slider {
             position: absolute;
             z-index: 10;
             top: 50%;
             left: 50%;
-            width: 40px;
-            height: 40px;
-            margin-left: -20px;
-            margin-top: -20px;
+            width: 46px;
+            height: 46px;
+            margin-left: -23px;
+            margin-top: -23px;
             background: var(--gold);
             border-radius: 50%;
-            cursor: ew-resize;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: black;
-            box-shadow: 0 0 20px var(--gold);
+            color: #000;
+            box-shadow: 0 0 20px rgba(212,175,55,.8);
+            pointer-events: none;
         }
+
+        /* ================= WHATSAPP ================= */
 
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25d366;
+            right: 20px;
+            bottom: 20px;
             width: 60px;
             height: 60px;
+            background: #25d366;
+            color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            text-decoration: none;
             z-index: 1000;
+            box-shadow: 0 10px 25px rgba(37,211,102,.4);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            0%,100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.08);
+            }
         }
+
+        /* ================= LIGHTBOX ================= */
 
         #lightbox {
             display: none;
             position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
+            inset: 0;
+            z-index: 999999;
+            background: rgba(0,0,0,.96);
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
+
+        #lightbox.active {
+            display: flex;
+        }
+
+        #lightbox img {
+            max-width: 95vw;
+            max-height: 88vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 18px;
+            right: 25px;
+            color: white;
+            font-size: 38px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* ================= AUTH ================= */
+
+        .ac-modal-overlay {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.88);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            padding: 20px;
+        }
+
+        .ac-modal-overlay.active {
+            display: flex;
+        }
+
+        .ac-login-box {
+            position: relative;
+            background: #181818;
+            padding: 32px 28px;
+            border-radius: 14px;
+            border: 1px solid #333;
+            width: 100%;
+            max-width: 380px;
+            color: #fff;
+            box-shadow: 0 15px 50px rgba(0,0,0,.9);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 9px;
+            right: 15px;
+            font-size: 25px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: var(--orange);
+        }
+
+        .ac-login-box h2 {
+            color: var(--orange);
+            margin: 0 0 8px;
+            font-size: 21px;
+        }
+
+        .ac-subtext {
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .ac-login-box input,
+        .ac-select {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            background: #0d0d0d;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        .ac-login-box input:focus,
+        .ac-select:focus {
+            border-color: var(--orange);
+        }
+
+        .ac-select option {
+            background: #181818;
+            color: white;
+        }
+
+        .ac-login-btn {
+            width: 100%;
+            padding: 12px;
+            border: 0;
+            border-radius: 7px;
+            background: var(--orange);
+            color: #000;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .ac-login-btn:hover {
+            background: #e67e22;
+            color: #fff;
+        }
+
+        .ac-error-msg {
+            min-height: 18px;
+            color: #e74c3c;
+            font-size: 12px;
+            margin: -4px 0 10px;
+        }
+
+        .ac-links {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .ac-links a {
+            color: var(--orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* ================= REVIEWS ================= */
+
+        .ac-public-system {
+            background: #121212;
+            color: #f1f1f1;
+            padding: 25px;
+            border-radius: 14px;
+            max-width: 800px;
+            margin: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,.6);
+            border: 1px solid #2a2a2a;
+        }
+
+        .ac-public-system h2,
+        .ac-public-system h3 {
+            color: var(--orange);
+        }
+
+        .ac-stats-board {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .ac-stat-box {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 12px 8px;
+            text-align: center;
+        }
+
+        .ac-stat-value {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
+        .ac-stat-label {
+            display: block;
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 4px;
+        }
+
+        .ac-form-box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .ac-form-box input,
+        .ac-form-box textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            background: #0d0d0d;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 6px;
+            outline: none;
+            resize: vertical;
+        }
+
+        .stars-input {
+            font-size: 30px;
+            color: #444;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .star-btn.selected {
+            color: #f1c40f;
+        }
+
+        .ac-form-box button {
+            width: 100%;
+            padding: 12px;
+            border: 0;
+            border-radius: 6px;
+            background: var(--orange);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .ac-card {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--orange);
+        }
+
+        .ac-card-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+
+        .ac-stars-given {
+            color: #f1c40f;
+            white-space: nowrap;
+        }
+
+        .ac-user-text {
+            color: #ddd;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+
+        .ac-owner-reply {
+            background: #262626;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--orange);
+            border-left: 3px solid var(--orange);
+        }
+
+        .reply-btn {
+            background: transparent;
+            border: 1px solid var(--orange);
+            color: var(--orange);
+            padding: 5px 9px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-top: 8px;
+        }
+
+        .empty-feed {
+            text-align: center;
+            color: #777;
+            padding: 20px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 1024px) {
+
+            .desktop-nav {
+                display: none !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+
+            .ba-container {
+                height: 400px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+
+            .mobile-menu-btn {
+                display: none !important;
+            }
+
+            .mobile-menu {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .ba-container {
+                height: 320px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                right: 15px;
+                bottom: 15px;
+                font-size: 28px;
+            }
+
+            .ac-public-system {
+                margin: 0;
+                padding: 18px;
+            }
+
+            .ac-stats-board {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ac-card-header {
+                flex-direction: column;
+            }
+
+            .ac-login-box {
+                padding: 30px 20px;
+            }
+
+            .lightbox-close {
+                right: 15px;
+                top: 10px;
+            }
+        }
+
+        @media (max-width: 380px) {
+
+            .luxury-font {
+                letter-spacing: .5px;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
-<style>
-    .ac-header-auth-btn {
-        display: inline-block;
-        background: #f39c12; color: #000;
-        padding: 8px 16px; font-weight: bold;
-        font-family: 'Segoe UI', Arial, sans-serif;
-        font-size: 13px; border-radius: 6px;
-        cursor: pointer; text-decoration: none;
-        border: none; margin-left: 10px; margin-right: 5px;
-        vertical-align: middle;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-        transition: 0.3s;
-    }
-    .ac-header-auth-btn:hover { background: #e67e22; color: #fff; }
+<!-- =========================================================
+     AUTH MODAL
+========================================================= -->
 
-    .ac-modal-overlay {
-        position: fixed; top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        display: flex; justify-content: center; align-items: center;
-        z-index: 999999; font-family: 'Segoe UI', Arial, sans-serif;
-    }
-    .ac-login-box {
-        position: relative;
-        background: #181818; padding: 35px 30px;
-        border-radius: 12px; border: 1px solid #333;
-        width: 90%; max-width: 360px; text-align: center; color: #fff;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-    }
-    .close-btn {
-        position: absolute; top: 10px; right: 15px;
-        font-size: 24px; color: #aaa; cursor: pointer;
-    }
-    .close-btn:hover { color: #f39c12; }
-    .ac-login-box h2 { color: #f39c12; margin-top: 0; margin-bottom: 8px; font-size: 20px; }
-    .ac-subtext { color: #aaa; font-size: 13px; margin-bottom: 20px; }
-    .ac-login-box input, .ac-select {
-        width: 100%; padding: 12px 15px; margin-bottom: 12px;
-        background: #0d0d0d; border: 1px solid #444; color: #fff;
-        border-radius: 6px; box-sizing: border-box; outline: none; font-size: 14px;
-    }
-    .ac-select option { background: #181818; color: #fff; }
-    .ac-login-box input:focus, .ac-select:focus { border-color: #f39c12; }
-    .ac-login-btn {
-        background: #f39c12; color: #000; font-weight: bold;
-        padding: 12px; border: none; border-radius: 6px;
-        cursor: pointer; width: 100%; margin-top: 5px; font-size: 15px;
-    }
-    .ac-login-btn:hover { background: #e67e22; color: #fff; }
-    .ac-error-msg { color: #e74c3c; font-size: 12px; margin-top: -5px; margin-bottom: 10px; text-align: left; }
-    .ac-links { margin-top: 15px; font-size: 13px; }
-    .ac-links a { color: #f39c12; text-decoration: none; font-weight: bold; line-height: 1.8; }
-    .ac-links a:hover { text-decoration: underline; }
-</style>
+<div class="ac-modal-overlay" id="acLoginModal">
 
-<div class="ac-modal-overlay" id="acLoginModal" style="display: none;">
+    <!-- LOGIN -->
     <div class="ac-login-box" id="loginBox">
-        <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+
+        <span class="close-btn" onclick="closeLoginModal()">
+            &times;
+        </span>
+
         <h2>लॉगिन करें</h2>
-        <p class="ac-subtext">मैसेज भेजने के लिए अपना ईमेल और पासवर्ड दर्ज करें</p>
 
-        <input type="email" id="loginEmail" placeholder="ईमेल (Email Address)" autocomplete="email">
-        <input type="password" id="loginPass" placeholder="पासवर्ड (Password)" autocomplete="current-password">
-        
+        <p class="ac-subtext">
+            अकाउंट इस्तेमाल करने के लिए लॉगिन करें
+        </p>
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="ईमेल (Email Address)"
+            autocomplete="email">
+
+        <input
+            type="password"
+            id="loginPass"
+            placeholder="पासवर्ड"
+            autocomplete="current-password">
+
         <p id="loginError" class="ac-error-msg"></p>
-        
-        <button class="ac-login-btn" onclick="handleLogin()">लॉगिन करें</button>
-        
+
+        <button
+            type="button"
+            class="ac-login-btn"
+            onclick="handleLogin()">
+            लॉगिन करें
+        </button>
+
         <div class="ac-links">
-            <a href="javascript:void(0)" onclick="toggleAuth('forgot')">पासवर्ड भूल गए?</a> | 
-            <a href="javascript:void(0)" onclick="toggleAuth('register')">नया अकाउंट बनाएँ</a>
+
+            <a href="#"
+               onclick="toggleAuth('forgot');return false;">
+                पासवर्ड भूल गए?
+            </a>
+
+            &nbsp; | &nbsp;
+
+            <a href="#"
+               onclick="toggleAuth('register');return false;">
+                नया अकाउंट बनाएँ
+            </a>
+
         </div>
+
     </div>
 
-    <div class="ac-login-box" id="registerBox" style="display: none;">
-        <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+
+    <!-- REGISTER -->
+
+    <div class="ac-login-box"
+         id="registerBox"
+         style="display:none;">
+
+        <span class="close-btn"
+              onclick="closeLoginModal()">
+            &times;
+        </span>
+
         <h2>नया अकाउंट बनाएँ</h2>
-        <p class="ac-subtext">अपनी जानकारी भरें और सुरक्षा प्रश्न चुनें</p>
 
-        <input type="text" id="regUser" placeholder="यूज़रनेम चुनें (e.g. rahul123)" autocomplete="off">
-        <input type="email" id="regEmail" placeholder="ईमेल दर्ज करें (e.g. name@gmail.com)" autocomplete="off">
-        <input type="password" id="regPass" placeholder="पासवर्ड (कम से कम 8 अक्षर)">
-        
-        <select id="regQuestion" class="ac-select">
-            <option value="">सुरक्षा प्रश्न चुनें (Security Question)</option>
-            <option value="pet">आपके पसंदीदा पालतू जानवर का नाम?</option>
-            <option value="school">आपके पहले स्कूल का नाम?</option>
-            <option value="city">आपका जन्म किस शहर में हुआ?</option>
+        <p class="ac-subtext">
+            अपनी जानकारी भरें
+        </p>
+
+        <input
+            type="text"
+            id="regUser"
+            placeholder="यूज़रनेम"
+            autocomplete="off">
+
+        <input
+            type="email"
+            id="regEmail"
+            placeholder="ईमेल"
+            autocomplete="off">
+
+        <input
+            type="password"
+            id="regPass"
+            placeholder="पासवर्ड - कम से कम 8 अक्षर"
+            autocomplete="new-password">
+
+        <select id="regQuestion"
+                class="ac-select">
+
+            <option value="">
+                सुरक्षा प्रश्न चुनें
+            </option>
+
+            <option value="pet">
+                आपके पसंदीदा पालतू जानवर का नाम?
+            </option>
+
+            <option value="school">
+                आपके पहले स्कूल का नाम?
+            </option>
+
+            <option value="city">
+                आपका जन्म किस शहर में हुआ?
+            </option>
+
         </select>
-        <input type="text" id="regAnswer" placeholder="सुरक्षा प्रश्न का उत्तर दें" autocomplete="off">
 
-        <p id="regError" class="ac-error-msg"></p>
+        <input
+            type="text"
+            id="regAnswer"
+            placeholder="सुरक्षा प्रश्न का उत्तर"
+            autocomplete="off">
 
-        <button class="ac-login-btn" onclick="handleRegister()">रजिस्टर करें</button>
-        
+        <p id="regError"
+           class="ac-error-msg"></p>
+
+        <button
+            type="button"
+            class="ac-login-btn"
+            onclick="handleRegister()">
+
+            रजिस्टर करें
+
+        </button>
+
         <div class="ac-links">
-            <a href="javascript:void(0)" onclick="toggleAuth('login')">पहले से अकाउंट है? लॉगिन करें</a>
+
+            <a href="#"
+               onclick="toggleAuth('login');return false;">
+
+                पहले से अकाउंट है? लॉगिन करें
+
+            </a>
+
         </div>
+
     </div>
 
-    <div class="ac-login-box" id="forgotBox" style="display: none;">
-        <span class="close-btn" onclick="closeLoginModal()">&times;</span>
+
+    <!-- FORGOT -->
+
+    <div class="ac-login-box"
+         id="forgotBox"
+         style="display:none;">
+
+        <span class="close-btn"
+              onclick="closeLoginModal()">
+
+            &times;
+
+        </span>
+
         <h2>पासवर्ड रीसेट करें</h2>
-        <p class="ac-subtext">सुरक्षा प्रश्न का उत्तर देकर नया पासवर्ड बनाएँ</p>
 
-        <input type="email" id="forgotEmail" placeholder="अपना ईमेल दर्ज करें" autocomplete="off">
-        
-        <select id="forgotQuestion" class="ac-select">
-            <option value="">सुरक्षा प्रश्न चुनें</option>
-            <option value="pet">आपके पसंदीदा पालतू जानवर का नाम?</option>
-            <option value="school">आपके पहले स्कूल का नाम?</option>
-            <option value="city">आपका जन्म किस शहर में हुआ?</option>
+        <p class="ac-subtext">
+            सुरक्षा प्रश्न का उत्तर दें
+        </p>
+
+        <input
+            type="email"
+            id="forgotEmail"
+            placeholder="ईमेल"
+            autocomplete="off">
+
+        <select id="forgotQuestion"
+                class="ac-select">
+
+            <option value="">
+                सुरक्षा प्रश्न चुनें
+            </option>
+
+            <option value="pet">
+                आपके पसंदीदा पालतू जानवर का नाम?
+            </option>
+
+            <option value="school">
+                आपके पहले स्कूल का नाम?
+            </option>
+
+            <option value="city">
+                आपका जन्म किस शहर में हुआ?
+            </option>
+
         </select>
-        <input type="text" id="forgotAnswer" placeholder="सुरक्षा प्रश्न का उत्तर दें" autocomplete="off">
-        <input type="password" id="newPass" placeholder="नया पासवर्ड (कम से कम 8 अक्षर)">
 
-        <p id="forgotError" class="ac-error-msg"></p>
+        <input
+            type="text"
+            id="forgotAnswer"
+            placeholder="सुरक्षा प्रश्न का उत्तर">
 
-        <button class="ac-login-btn" onclick="handleResetPassword()">पासवर्ड बदलें</button>
-        
+        <input
+            type="password"
+            id="newPass"
+            placeholder="नया पासवर्ड - कम से कम 8 अक्षर">
+
+        <p id="forgotError"
+           class="ac-error-msg"></p>
+
+        <button
+            type="button"
+            class="ac-login-btn"
+            onclick="handleResetPassword()">
+
+            पासवर्ड बदलें
+
+        </button>
+
         <div class="ac-links">
-            <a href="javascript:void(0)" onclick="toggleAuth('login')">← वापस लॉगिन पर जाएँ</a>
+
+            <a href="#"
+               onclick="toggleAuth('login');return false;">
+
+                ← वापस लॉगिन पर जाएँ
+
+            </a>
+
         </div>
+
     </div>
+
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let formButtons = document.querySelectorAll("form button, form input[type='submit']");
-        formButtons.forEach(function(btn) {
-            btn.setAttribute("type", "button");
-            btn.setAttribute("onclick", "triggerSendMessage()");
-        });
 
-        let allNavElements = document.querySelectorAll("nav a, .nav-link, header a, button, a.btn, .btn");
-        allNavElements.forEach(function(el) {
-            let text = el.innerText.toLowerCase();
-            if (text.includes("book now") || text.includes("बुकिंग")) {
-                if (!el.nextElementSibling || !el.nextElementSibling.classList.contains('ac-header-auth-btn')) {
-                    let loginNavBtn = document.createElement("a");
-                    loginNavBtn.className = "ac-header-auth-btn";
-                    loginNavBtn.innerText = "🔑 Login / Register";
-                    loginNavBtn.href = "javascript:void(0)";
-                    loginNavBtn.onclick = function() { openSidebarAuth(); };
-                    el.parentNode.insertBefore(loginNavBtn, el.nextSibling);
-                }
-            }
-        });
-    });
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    function openSidebarAuth() {
-        let isUserLoggedIn = localStorage.getItem("isUserLoggedInPermanently");
-        let userEmail = localStorage.getItem("currentSessionEmail");
+<header class="fixed top-0 left-0 right-0 z-[500] px-3 md:px-6 py-3">
 
-        if (isUserLoggedIn === "true" && userEmail) {
-            alert("आप पहले से (" + userEmail + ") के रूप में लॉगिन हैं!");
-        } else {
-            let savedCreds = localStorage.getItem("lastSavedEmailCreds");
-            if (savedCreds) {
-                let parsed = JSON.parse(savedCreds);
-                document.getElementById("loginEmail").value = parsed.email || "";
-                document.getElementById("loginPass").value = parsed.pass || "";
-            }
-            toggleAuth('login');
-            document.getElementById("acLoginModal").style.display = "flex";
-        }
-    }
+    <div class="max-w-7xl mx-auto glass-card rounded-full
+                px-3 md:px-8 py-3
+                flex justify-between items-center
+                border-amber-500/20">
 
-    function triggerSendMessage() {
-        let isUserLoggedIn = localStorage.getItem("isUserLoggedInPermanently");
-        let userEmail = localStorage.getItem("currentSessionEmail");
-        
-        if (isUserLoggedIn === "true" && userEmail) {
-            alert("आपका मैसेज सफलतापूर्वक भेज दिया गया है! धन्यवाद, " + userEmail);
-        } else {
-            openSidebarAuth();
-        }
-    }
+        <a href="#"
+           class="flex items-center space-x-2 md:space-x-3 group">
 
-    function closeLoginModal() {
-        document.getElementById("acLoginModal").style.display = "none";
-    }
+            <!-- IMAGE NAME UNCHANGED -->
 
-    function toggleAuth(view) {
-        document.getElementById("loginError").innerText = "";
-        document.getElementById("regError").innerText = "";
-        document.getElementById("forgotError").innerText = "";
+            <img
+                src="logo01/logo.jpeg"
+                alt="Ajay Creation Logo"
+                loading="eager"
+                class="w-10 h-10 md:w-11 md:h-11 rounded-full
+                       object-cover border-2 border-amber-500
+                       shadow-[0_0_15px_rgba(212,175,55,0.4)]">
 
-        document.getElementById("loginBox").style.display = (view === 'login') ? "block" : "none";
-        document.getElementById("registerBox").style.display = (view === 'register') ? "block" : "none";
-        document.getElementById("forgotBox").style.display = (view === 'forgot') ? "block" : "none";
-    }
+            <span
+                class="luxury-font text-[10px] sm:text-xs md:text-xl
+                       font-bold tracking-tighter
+                       text-transparent bg-clip-text
+                       bg-gradient-to-r from-amber-200
+                       via-amber-500 to-yellow-600">
 
-    function handleRegister() {
-        let username = document.getElementById("regUser").value.trim().toLowerCase();
-        let email = document.getElementById("regEmail").value.trim().toLowerCase();
-        let password = document.getElementById("regPass").value.trim();
-        let question = document.getElementById("regQuestion").value;
-        let answer = document.getElementById("regAnswer").value.trim().toLowerCase();
-        let errorElem = document.getElementById("regError");
+                AJAY CREATION<span class="text-white">.</span>
 
-        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (username.length < 3) {
-            errorElem.innerText = "यूज़रनेम कम से कम 3 अक्षरों का होना चाहिए!";
-            return;
-        }
-        if (!emailRegex.test(email)) {
-            errorElem.innerText = "कृपया सही ईमेल दर्ज करें (e.g. name@gmail.com)!";
-            return;
-        }
-        if (password.length < 8) {
-            errorElem.innerText = "पासवर्ड कम से कम 8 अक्षरों का होना अनिवार्य है!";
-            return;
-        }
-        if (!question || !answer) {
-            errorElem.innerText = "कृपया सुरक्षा प्रश्न और उसका उत्तर दोनों भरें!";
-            return;
-        }
-
-        let users = JSON.parse(localStorage.getItem("fullUsersDatabase") || "{}");
-
-        for (let key in users) {
-            if (users[key].username === username) {
-                errorElem.innerText = "यह यूज़रनेम पहले से किसी और का है, दूसरा चुनें!";
-                return;
-            }
-        }
-
-        if (users[email]) {
-            errorElem.innerText = "यह ईमेल पहले से रजिस्टर्ड है!";
-            return;
-        }
-
-        users[email] = { username: username, password: password, question: question, answer: answer };
-        localStorage.setItem("fullUsersDatabase", JSON.stringify(users));
-        localStorage.setItem("lastSavedEmailCreds", JSON.stringify({ email: email, pass: password }));
-
-        alert("अकाउंट बन गया है! अब लॉगिन करें।");
-        document.getElementById("loginEmail").value = email;
-        document.getElementById("loginPass").value = password;
-        toggleAuth('login');
-    }
-
-    function handleResetPassword() {
-        let email = document.getElementById("forgotEmail").value.trim().toLowerCase();
-        let question = document.getElementById("forgotQuestion").value;
-        let answer = document.getElementById("forgotAnswer").value.trim().toLowerCase();
-        let newPass = document.getElementById("newPass").value.trim();
-        let errorElem = document.getElementById("forgotError");
-
-        if (!email || !question || !answer || !newPass) {
-            errorElem.innerText = "कृपया सभी फ़ील्ड्स भरें!";
-            return;
-        }
-        if (newPass.length < 8) {
-            errorElem.innerText = "नया पासवर्ड कम से कम 8 अक्षरों का होना चाहिए!";
-            return;
-        }
-
-        let users = JSON.parse(localStorage.getItem("fullUsersDatabase") || "{}");
-
-        if (!users[email]) {
-            errorElem.innerText = "यह ईमेल रजिस्टर्ड नहीं है!";
-            return;
-        }
-
-        let userInfo = users[email];
-
-        if (userInfo.question === question && userInfo.answer === answer) {
-            users[email].password = newPass;
-            localStorage.setItem("fullUsersDatabase", JSON.stringify(users));
-            localStorage.setItem("lastSavedEmailCreds", JSON.stringify({ email: email, pass: newPass }));
-
-            alert("पासवर्ड बदल गया है! अब नए पासवर्ड से लॉगिन करें।");
-            document.getElementById("loginEmail").value = email;
-            document.getElementById("loginPass").value = newPass;
-            toggleAuth('login');
-        } else {
-            errorElem.innerText = "सुरक्षा प्रश्न या उत्तर गलत है!";
-        }
-    }
-
-    function handleLogin() {
-        let inputEmail = document.getElementById("loginEmail").value.trim().toLowerCase();
-        let inputPass = document.getElementById("loginPass").value.trim();
-        let errorElem = document.getElementById("loginError");
-
-        if (!inputEmail || !inputPass) {
-            errorElem.innerText = "कृपया ईमेल और पासवर्ड दोनों दर्ज करें!";
-            return;
-        }
-
-        let users = JSON.parse(localStorage.getItem("fullUsersDatabase") || "{}");
-
-        if (users[inputEmail] && users[inputEmail].password === inputPass) {
-            localStorage.setItem("lastSavedEmailCreds", JSON.stringify({ email: inputEmail, pass: inputPass }));
-            localStorage.setItem("currentSessionEmail", inputEmail);
-            localStorage.setItem("isUserLoggedInPermanently", "true");
-            
-            closeLoginModal();
-            alert("लॉगिन सफल हुआ!");
-        } else {
-            errorElem.innerText = "गलत ईमेल या पासवर्ड!";
-        }
-    }
-</script>
-
-    <header class="fixed top-0 left-0 right-0 z-[500] px-4 md:px-6 py-4">
-        <div class="max-w-7xl mx-auto glass-card rounded-2xl md:rounded-full px-4 md:px-8 py-3 flex flex-wrap justify-between items-center gap-4 border-amber-500/20 bg-black/80 backdrop-blur-md">
-            <a href="#" class="flex items-center space-x-3 group">
-                <img src="logo01/logo.jpeg" alt="Profile Picture" class="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover border-2 border-amber-500 shadow-[0_0_15px_rgba(212,175,55,0.4)] transition duration-300 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80'">
-                <span class="luxury-font text-base md:text-xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-500 to-yellow-600">
-                    AJAY CREATION<span class="text-white">.</span>
-                </span>
-            </a>
-            
-            <nav class="flex flex-wrap items-center justify-center gap-3 md:gap-6 text-[11px] md:text-xs luxury-font font-medium tracking-widest text-slate-300">
-                <a href="#about" class="hover:text-amber-400 transition-all">ABOUT ME</a>
-                <a href="#album-designs" class="hover:text-amber-400 transition-all">ALBUM DESIGNS</a>
-                <a href="#photo-restoration" class="hover:text-amber-400 transition-all">RESTORE PHOTO</a>
-                <a href="#photo-editing" class="hover:text-amber-400 transition-all">PHOTO EDITING</a>
-                <a href="#contact" class="hover:text-amber-400 transition-all">CONTACT</a>
-                <a href="#booking" class="hover:text-amber-400 transition-all">BOOKING</a>
-            </nav>
-
-            <div class="flex items-center space-x-3">
-                <a href="https://www.instagram.com/a_j_a_y_creartion?igsh=MTMwejYydDRsb2cyZw==" target="_blank" class="w-9 h-9 flex items-center justify-center glass-card rounded-full hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 transition duration-500">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#booking" class="bg-amber-500 text-black px-4 md:px-5 py-2 rounded-full text-xs luxury-font font-bold hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] transition duration-300">
-                    BOOK NOW
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <section class="min-h-screen flex items-center justify-center pt-28 md:pt-24 relative px-6 overflow-hidden">
-        <div class="absolute w-[500px] h-[500px] bg-amber-600/10 rounded-full blur-[120px] -top-20 -left-20"></div>
-        <div class="max-w-5xl mx-auto text-center relative">
-            <span class="text-amber-400 luxury-font text-sm md:text-base font-semibold tracking-[6px] uppercase mb-4 block">
-                🙏 hello every one! Welcome to Ajay Creation
             </span>
-            <h1 class="luxury-font text-4xl md:text-7xl font-bold leading-tight mb-8">
-                CREATIVE PHOTOGRAPHY <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-b from-amber-200 to-amber-700">& DIGITAL ART.</span>
-            </h1>
-            <p class="text-slate-400 text-base md:text-xl max-w-2xl mx-auto mb-10 tracking-wide font-light">
-                "Welcome to our creative world. We provide premium services in album designing, photo restoration, high-end photo editing, and wedding photography.
-            </p>
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
-                <a href="#album-designs" class="px-8 py-4 bg-white text-black rounded-full font-bold luxury-font text-xs hover:bg-amber-500 transition duration-500">MY WORK</a>
-                <a href="#booking" class="px-8 py-4 glass-card rounded-full font-bold luxury-font text-xs hover:border-amber-500 transition">BOOK NOW</a>
-            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav
+            class="desktop-nav hidden lg:flex
+                   items-center space-x-5 xl:space-x-6
+                   text-[10px] luxury-font
+                   font-medium tracking-widest
+                   text-slate-400">
+
+            <a href="#about"
+               class="hover:text-amber-400 transition">
+                ABOUT ME
+            </a>
+
+            <a href="#album-designs"
+               class="hover:text-amber-400 transition">
+                ALBUM DESIGNS
+            </a>
+
+            <a href="#photo-restoration"
+               class="hover:text-amber-400 transition">
+                RESTORE PHOTO
+            </a>
+
+            <a href="#photo-editing"
+               class="hover:text-amber-400 transition">
+                PHOTO EDITING
+            </a>
+
+            <a href="#contact"
+               class="hover:text-amber-400 transition">
+                CONTACT
+            </a>
+
+            <a href="#booking"
+               class="hover:text-amber-400 transition">
+                BOOKING
+            </a>
+
+        </nav>
+
+
+        <div class="flex items-center space-x-2">
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/a_j_a_y_creartion?igsh=MTMwejYydDRsb2cyZw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
+
+                <span
+                    class="w-9 h-9 flex items-center
+                           justify-center glass-card
+                           rounded-full
+                           hover:bg-gradient-to-tr
+                           hover:from-purple-600
+                           hover:to-pink-500
+                           transition">
+
+                    <i class="fab fa-instagram"></i>
+
+                </span>
+
+            </a>
+
+
+            <!-- BOOK NOW -->
+
+            <a
+                href="#booking"
+                class="hidden sm:inline-block
+                       bg-amber-500 text-black
+                       px-4 md:px-5 py-2
+                       rounded-full text-[9px] md:text-xs
+                       luxury-font font-bold
+                       hover:shadow-[0_0_20px_rgba(212,175,55,.5)]
+                       transition">
+
+                BOOK NOW
+
+            </a>
+
+
+            <!-- LOGIN -->
+
+            <button
+                type="button"
+                onclick="openSidebarAuth(); toggleAuth('login');"
+                class="hidden sm:inline-block glass-card px-4 md:px-5 py-2 rounded-full text-[9px] md:text-xs luxury-font font-bold text-amber-400 hover:border-amber-500/60 transition">
+                LOGIN
+            </button>
+
+
+            <!-- REGISTER -->
+
+            <button
+                type="button"
+                onclick="openSidebarAuth(); toggleAuth('register');"
+                class="hidden sm:inline-block glass-card px-4 md:px-5 py-2 rounded-full text-[9px] md:text-xs luxury-font font-bold text-amber-400 hover:border-amber-500/60 transition">
+                REGISTER
+            </button>
+
+
+            <!-- ACCOUNT -->
+
+            <button
+                type="button"
+                onclick="openSidebarAuth()"
+                class="hidden md:inline-block glass-card px-4 md:px-5 py-2 rounded-full text-[9px] md:text-xs luxury-font font-bold text-amber-400 hover:border-amber-500/60 transition">
+                ACCOUNT
+            </button>
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                type="button"
+                id="mobileMenuBtn"
+                class="mobile-menu-btn hidden glass-card"
+                aria-label="Open Menu"
+                onclick="toggleMobileMenu()">
+
+                <i id="mobileMenuIcon"
+                   class="fas fa-bars"></i>
+
+            </button>
+
         </div>
-    </section>
 
-    <section id="about" class="py-24 bg-[#080808] border-t border-white/5">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div class="flex justify-center">
-                    <div class="relative group">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-yellow-600 rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
-                        <img src="logo01/logo.jpeg" alt="Pandit - Ajay Creation" class="relative rounded-3xl w-80 md:w-96 h-[420px] object-cover border border-white/10 shadow-2xl" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
-                    </div>
-                </div>
-                <div>
-                    <span class="text-amber-500 luxury-font text-xs font-bold tracking-[5px]">ABOUT ME</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2 mb-6 luxury-font">Hi, I'm <span class="text-amber-500">Pandit.</span></h2>
-                    <p class="text-slate-300 text-base leading-relaxed mb-6">
-                        "As the founder of Ajay Creation and a professional photo editor & album designer, my goal is to give your special moments a beautiful, premium, and everlasting look." ko hamesha ke liye ek shandar aur luxury look dena hai.
-                    </p>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
-                        "I specialize in wedding album sheet design, photo restoration (repairing old or damaged photos), and cinematic photo editing." .
-                    </p>
-                    <div class="grid grid-cols-2 gap-4 text-slate-300 text-sm">
-                        <div class="flex items-center space-x-3"><i class="fas fa-check text-amber-500"></i><span>Album Designing</span></div>
-                        <div class="flex items-center space-x-3"><i class="fas fa-check text-amber-500"></i><span>Photo Restoration</span></div>
-                        <div class="flex items-center space-x-3"><i class="fas fa-check text-amber-500"></i><span>Cinematic Retouching</span></div>
-                        <div class="flex items-center space-x-3"><i class="fas fa-check text-amber-500"></i><span>Color Grading</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="album-designs" class="py-28 bg-[#050505] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 border-b border-amber-500/20 pb-6">
-                <div>
-                    <span class="text-amber-500 luxury-font text-xs font-bold tracking-[5px]">MY WORK - 01</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2 luxury-font">ALBUM DESIGN <span class="text-amber-500">SHEETS.</span></h2>
-                    <p class="text-slate-400 text-sm mt-2">Custom wedding album sheets aur luxury layouts ka collection</p>
-                </div>
-                <span class="text-slate-500 text-xs luxury-font mt-4 md:mt-0">HIGH-QUALITY SHEETS</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('sheets/01.jpg')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="sheets/01.jpg" alt="Album Sheet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">ALBUM SHEET #01</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Royal Wedding Acrylic Sheet Layout</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('sheets/02.jpg')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="sheets/02.jpg" alt="Album Sheet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">ALBUM SHEET #02</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Pad & Velvet Box Album Sheet</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('sheets/03.jpg')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="sheets/03.jpg" alt="Album Sheet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">ALBUM SHEET #03</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Candid Couple Spread Sheet</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="photo-restoration" class="py-28 bg-[#090909] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 border-b border-amber-500/20 pb-6">
-                <div>
-                    <span class="text-amber-500 luxury-font text-xs font-bold tracking-[5px]">MY WORK - 02</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2 luxury-font">RESTORE <span class="text-amber-500">PHOTOS.</span></h2>
-                    <p class="text-slate-400 text-sm mt-2">Purani, kati-fati aur damaged photos ka digital restoration work</p>
-                </div>
-                <span class="text-slate-500 text-xs luxury-font mt-4 md:mt-0">BEFORE / AFTER RESTORE</span>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-14">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4 luxury-font">Photo Restoration Magic</h3>
-                    <p class="text-slate-400 mb-6 leading-relaxed">
-                        Slider ko aage-peeche karke dekhein ki purani aur damage photos ko kaise nayi jaisi quality me restore kiya jata hai.
-                    </p>
-                    <ul class="space-y-3 text-slate-300 text-sm">
-                        <li class="flex items-center space-x-3"><i class="fas fa-magic text-amber-500"></i> <span>Scratch & Tear Removal</span></li>
-                        <li class="flex items-center space-x-3"><i class="fas fa-magic text-amber-500"></i> <span>Black & White to Realistic Color</span></li>
-                        <li class="flex items-center space-x-3"><i class="fas fa-magic text-amber-500"></i> <span>Face Detail & Clarity Sharpening</span></li>
-                    </ul>
-                </div>
-
-                <div class="ba-container glass-card shadow-2xl" id="ba-box">
-                    <div class="ba-image" style="background-image: url('restorepic/01r.jpg');"></div>
-                    <div id="after-img" class="ba-image ba-after" style="background-image: url('restorepic/02r.jpg');"></div>
-                    <div id="ba-handle" class="ba-slider"><i class="fas fa-arrows-alt-h"></i></div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('restorepic/02r.jpg')">
-                    <div class="h-[320px] overflow-hidden relative">
-                        <img src="restorepic/02r.jpg" alt="Restored Photo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">RESTORED PHOTO</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Vintage Portrait Restored</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('restorepic/01r.jpg')">
-                    <div class="h-[320px] overflow-hidden relative">
-                        <img src="restorepic/01r.jpg" alt="Restored Photo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">RESTORED PHOTO</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Old Damaged Photo Colorized</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="photo-editing" class="py-28 bg-[#050505] border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 border-b border-amber-500/20 pb-6">
-                <div>
-                    <span class="text-amber-500 luxury-font text-xs font-bold tracking-[5px]">MY WORK - 03</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2 luxury-font">PHOTO <span class="text-amber-500">EDITING.</span></h2>
-                    <p class="text-slate-400 text-sm mt-2">High-end skin retouching, color grading aur creative editing</p>
-                </div>
-                <span class="text-slate-500 text-xs luxury-font mt-4 md:mt-0">CINEMATIC EDITING</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('editpic/01.JPG')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="editpic/01.JPG" alt="Photo Editing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">PHOTO EDITING</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Cinematic Golden Hour Edit</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('editpic/02.JPG')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="editpic/02.JPG" alt="Photo Editing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">PHOTO EDITING</span>
-                            <h4 class="text-lg font-bold text-white mt-1">High-End Portrait Retouching</h4>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tilt-card glass-card rounded-[25px] overflow-hidden group cursor-pointer border border-white/10 hover:border-amber-500/50 transition duration-500" onclick="openLightbox('editpic/03.JPG')">
-                    <div class="h-[360px] overflow-hidden relative">
-                        <img src="editpic/03.JPG" alt="Photo Editing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <span class="text-amber-400 luxury-font text-[10px] tracking-widest">PHOTO EDITING</span>
-                            <h4 class="text-lg font-bold text-white mt-1">Wedding Tone Color Grading</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-28 border-t border-white/5 bg-[#080808]">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-amber-500 luxury-font text-xs font-bold tracking-[5px]">GET IN TOUCH & BOOK</span>
-                <h2 class="luxury-font text-3xl md:text-5xl font-bold mt-3">CONTACT & <span class="text-amber-500">BOOKING.</span></h2>
-                <p class="text-slate-400 text-sm mt-4">Contact us or submit your booking directly..</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-center">
-                <a href="tel:+917223981131" class="glass-card p-6 rounded-2xl hover:border-amber-500/50 transition duration-300">
-                    <i class="fas fa-phone-alt text-amber-500 text-2xl mb-3"></i>
-                    <p class="text-slate-400 text-xs uppercase luxury-font">Call / WhatsApp</p>
-                    <p class="text-white font-bold mt-1">+91 7223981131</p>
-                </a>
-                <a href="mailto:n35079324@gmail.com" class="glass-card p-6 rounded-2xl hover:border-amber-500/50 transition duration-300">
-                    <i class="fas fa-envelope text-amber-500 text-2xl mb-3"></i>
-                    <p class="text-slate-400 text-xs uppercase luxury-font">Email Address</p>
-                    <p class="text-white font-bold mt-1">n35079324@gmail.com</p>
-                </a>
-                <a href="https://www.instagram.com/a_j_a_y_creartion?igsh=MTMwejYydDRsb2cyZw==" target="_blank" class="glass-card p-6 rounded-2xl hover:border-amber-500/50 transition duration-300">
-                    <i class="fab fa-instagram text-pink-500 text-2xl mb-3"></i>
-                    <p class="text-slate-400 text-xs uppercase luxury-font">Instagram Page</p>
-                    <p class="text-white font-bold mt-1">@a_j_a_y_creartion</p>
-                </a>
-            </div>
-
-            <div id="booking" class="glass-card p-8 md:p-12 rounded-3xl border border-amber-500/20">
-                <h3 class="text-xl md:text-2xl font-bold luxury-font text-amber-400 mb-6 text-center">CUSTOMER BOOKING FORM</h3>
-                <form id="whatsapp-booking-form" onsubmit="sendToWhatsApp(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 luxury-font"> (Customer Name)</label>
-                            <input type="text" id="cust_name" required placeholder="enret your full name  " class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 transition">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 luxury-font">Mobile Number</label>
-                            <input type="tel" id="cust_phone" required placeholder="+91 0000000000" class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 transition">
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 luxury-font">Select Service </label>
-                        <select id="cust_service" class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 transition">
-                            <option class="bg-black text-white" value="Album Designing Work">📖 Album Designing Work</option>
-                            <option class="bg-black text-white" value="Photo Restoration Work">🖼️ Photo Restoration Work</option>
-                            <option class="bg-black text-white" value="High-End Photo Editing & Color Grading">🎬 High-End Photo Editing & Color Grading</option>
-                            <option class="bg-black text-white" value="Wedding Photography & Videography">💍 Wedding Photography & Videography</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 luxury-font">Booking Message / Details</label>
-                        <textarea id="cust_msg" rows="4" placeholder="Apni zarurat ya date ke bare me likhein..." class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500 transition"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-4 rounded-xl font-bold luxury-font text-xs hover:shadow-[0_0_25px_rgba(37,211,102,0.4)] transition duration-300 flex items-center justify-center space-x-2">
-                        <i class="fab fa-whatsapp text-lg"></i>
-                        <span>BOOK VIA WHATSAPP</span>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-8 bg-black text-center text-slate-600 text-xs luxury-font border-t border-white/5">
-        <p>© 2026 AJAY CREATION. ALL RIGHTS RESERVED.</p>
-    </footer>
-
-    <a href="https://wa.me/917223981131" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <div id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="sheets/01.jpg" class="max-w-[90%] max-h-[90%] shadow-2xl rounded-lg">
     </div>
 
-    <script>
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const name = document.getElementById('cust_name').value;
-            const phone = document.getElementById('cust_phone').value;
-            const service = document.getElementById('cust_service').value;
-            const msg = document.getElementById('cust_msg').value;
 
-            const myWhatsAppNumber = "917223981131";
+    <!-- MOBILE NAV -->
 
-            const whatsappMessage = `*New Booking Request - Ajay Creation*%0A%0A` +
-                `👤 *Name:* ${encodeURIComponent(name)}%0A` +
-                `📞 *Phone:* ${encodeURIComponent(phone)}%0A` +
-                `🛠️ *Service:* ${encodeURIComponent(service)}%0A` +
-                `📝 *Details:* ${encodeURIComponent(msg || 'N/A')}`;
+    <div id="mobileMenu"
+         class="mobile-menu glass-card rounded-2xl">
 
-            window.open(`https://wa.me/${myWhatsAppNumber}?text=${whatsappMessage}`, '_blank');
-        }
+        <a href="#about"
+           onclick="closeMobileMenu()">
+            ABOUT ME
+        </a>
 
-        const baBox = id("ba-box");
-        let isDragging = false;
+        <a href="#album-designs"
+           onclick="closeMobileMenu()">
+            ALBUM DESIGNS
+        </a>
 
-        function id(name) { return document.getElementById(name); }
+        <a href="#photo-restoration"
+           onclick="closeMobileMenu()">
+            RESTORE PHOTO
+        </a>
 
-        if (baBox) {
-            baBox.addEventListener('mousedown', () => isDragging = true);
-            window.addEventListener('mouseup', () => isDragging = false);
-            baBox.addEventListener('mousemove', (e) => { if (isDragging) updateSlider(e); });
+        <a href="#photo-editing"
+           onclick="closeMobileMenu()">
+            PHOTO EDITING
+        </a>
 
-            baBox.addEventListener('touchstart', () => isDragging = true);
-            window.addEventListener('touchend', () => isDragging = false);
-            baBox.addEventListener('touchmove', (e) => { if (isDragging) updateSlider(e.touches[0]); });
-        }
+        <a href="#contact"
+           onclick="closeMobileMenu()">
+            CONTACT
+        </a>
 
-        function updateSlider(e) {
-            const rect = baBox.getBoundingClientRect();
-            let x = e.clientX - rect.left;
-            if (x < 0) x = 0;
-            if (x > rect.width) x = rect.width;
-            let percent = (x / rect.width) * 100;
-            id('after-img').style.width = percent + "%";
-            id('ba-handle').style.left = percent + "%";
-        }
+        <a href="#booking"
+           onclick="closeMobileMenu()">
+            BOOKING
+        </a>
 
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.style.display = 'flex';
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-    </script>      
+        <a href="javascript:void(0)"
+           onclick="closeMobileMenu(); openSidebarAuth(); toggleAuth('login');">
+            LOGIN
+        </a>
 
-    <footer>
-        <div class="ac-public-system">
-            <h2>Public Ratings & Feedback</h2>
-            <p class="ac-subtext"></p>Tell us about your experience
+        <a href="javascript:void(0)"
+           onclick="closeMobileMenu(); openSidebarAuth(); toggleAuth('register');">
+            REGISTER
+        </a>
 
-            <div class="ac-stats-board">
-                <div class="ac-stat-box">
-                    <span class="ac-stat-value" id="acAvgRating">0.0 ★</span>
-                    <span class="ac-stat-label">औसत रेटिंग</span>
-                </div>
-                <div class="ac-stat-box">
-                    <span class="ac-stat-value" id="acTotalReviews">0</span>
-                    <span class="ac-stat-label">कुल समीक्षाएँ</span>
-                </div>
-                <div class="ac-stat-box">
-                    <span class="ac-stat-value" id="acOnlyStarsCount">0</span>
-                    <span class="ac-stat-label">केवल रेटिंग्स</span>
-                </div>
-                <div class="ac-stat-box">
-                    <span class="ac-stat-value" id="acTotalVisitors">0</span>
-                    <span class="ac-stat-label">लॉगिन यूज़र्स <span class="visitor-indicator">🔐</span></span>
-                </div>
-            </div>
+    </div>
 
-            <div class="ac-form-box">
-                <h3>Enter your name</h3>
-                
-                <input type="text" id="acName" placeholder="आपका नाम (Name) *" required>
+</header>
 
-                <div class="star-selector">
-                    <label>रेटिंग चुनें (Star Rating) *:</label>
-                    <div class="stars-input">
-                        <span class="star-btn" onclick="selectStars(1)">★</span>
-                        <span class="star-btn" onclick="selectStars(2)">★</span>
-                        <span class="star-btn" onclick="selectStars(3)">★</span>
-                        <span class="star-btn" onclick="selectStars(4)">★</span>
-                        <span class="star-btn" onclick="selectStars(5)">★</span>
-                    </div>
-                </div>
 
-                <textarea id="acMsg" rows="3" placeholder="क्या काम अच्छा लगा या क्या प्रॉब्लम आई? (ऑप्शनल - चाहें तो खाली छोड़ दें)"></textarea>
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-                <button onclick="postPublicReview()">स्क्रीन पर पोस्ट करें</button>
-            </div>
+<section
+    class="min-h-screen flex items-center
+           justify-center pt-28 pb-16
+           relative px-5 overflow-hidden">
 
-            <hr class="ac-divider">
+    <div
+        class="absolute w-[400px] h-[400px]
+               md:w-[600px] md:h-[600px]
+               bg-amber-600/10 rounded-full
+               blur-[120px]
+               -top-20 -left-20">
+    </div>
 
-            <h3>लाइव पब्लिक बोर्ड (Public Stream)</h3>
-            <div id="acPublicFeed" class="ac-feed-container"></div>
+    <div
+        class="max-w-5xl mx-auto text-center relative">
+
+        <span
+            class="text-amber-400 luxury-font
+                   text-[9px] sm:text-xs md:text-base
+                   font-semibold
+                   tracking-[2px] md:tracking-[6px]
+                   uppercase mb-5 block">
+
+            🙏 HELLO EVERYONE!
+            <br class="sm:hidden">
+            WELCOME TO AJAY CREATION
+
+        </span>
+
+        <h1
+            class="luxury-font
+                   text-3xl sm:text-4xl
+                   md:text-7xl
+                   font-bold leading-tight mb-7">
+
+            CREATIVE PHOTOGRAPHY
+
+            <br>
+
+            <span
+                class="text-transparent
+                       bg-clip-text
+                       bg-gradient-to-b
+                       from-amber-200
+                       to-amber-700">
+
+                & DIGITAL ART.
+
+            </span>
+
+        </h1>
+
+        <p
+            class="text-slate-400
+                   text-sm md:text-xl
+                   max-w-2xl mx-auto
+                   mb-9
+                   leading-relaxed">
+
+            Humari creative duniya mein aapka swagat hai.
+            Hum album designing, photo restoration,
+            high-end photo editing aur wedding photography
+            ki premium services provide karte hain.
+
+        </p>
+
+        <div
+            class="flex flex-col sm:flex-row
+                   items-center justify-center
+                   gap-4">
+
+            <a
+                href="#album-designs"
+                class="w-full sm:w-auto
+                       px-8 py-4
+                       bg-white text-black
+                       rounded-full font-bold
+                       luxury-font text-xs
+                       hover:bg-amber-500
+                       transition">
+
+                MY WORK
+
+            </a>
+
+            <a
+                href="#booking"
+                class="w-full sm:w-auto
+                       px-8 py-4 glass-card
+                       rounded-full font-bold
+                       luxury-font text-xs
+                       hover:border-amber-500
+                       transition">
+
+                BOOK NOW
+
+            </a>
+
         </div>
 
-        <style>
-            .ac-public-system {
-                background-color: #121212;
-                color: #f1f1f1;
-                padding: 25px;
-                border-radius: 12px;
-                max-width: 750px;
-                margin: 30px auto;
-                font-family: 'Segoe UI', Arial, sans-serif;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-                border: 1px solid #2a2a2a;
-            }
-            .ac-public-system h2, .ac-public-system h3 {
-                color: #f39c12;
-                margin-top: 0;
-            }
-            .ac-subtext {
-                color: #aaa;
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-            .ac-stats-board {
-                display: flex;
-                justify-content: space-between;
-                gap: 10px;
-                margin-bottom: 20px;
-            }
-            .ac-stat-box {
-                background: #1a1a1a;
-                border: 1px solid #333;
-                border-radius: 8px;
-                padding: 10px 8px;
-                flex: 1;
-                text-align: center;
-            }
-            .ac-stat-value {
-                display: block;
-                font-size: 18px;
-                font-weight: bold;
-                color: #f1c40f;
-            }
-            .ac-stat-label {
-                font-size: 11px;
-                color: #aaa;
-                margin-top: 4px;
-                display: block;
-            }
-            .visitor-indicator {
-                font-size: 10px;
-            }
-            .ac-form-box {
-                background: #1a1a1a;
-                padding: 20px;
-                border-radius: 8px;
-                border: 1px solid #333;
-            }
-            .ac-form-box input, .ac-form-box textarea {
-                width: 100%;
-                padding: 12px;
-                margin-top: 8px;
-                margin-bottom: 15px;
-                background: #0d0d0d;
-                border: 1px solid #444;
-                color: #fff;
-                border-radius: 6px;
-                box-sizing: border-box;
-            }
-            .star-selector {
-                margin-bottom: 15px;
-            }
-            .stars-input {
-                font-size: 30px;
-                color: #444;
-                cursor: pointer;
-                display: inline-block;
-            }
-            .stars-input .star-btn.selected {
-                color: #f1c40f;
-            }
-            .ac-form-box button {
-                background: #f39c12;
-                color: #000;
-                font-weight: bold;
-                padding: 12px 20px;
-                border: none;
-                border-radius: 6px;
-                cursor: pointer;
-                width: 100%;
-                font-size: 16px;
-            }
-            .ac-form-box button:hover {
-                background: #e67e22;
-                color: #fff;
-            }
-            .ac-divider {
-                border: 0;
-                height: 1px;
-                background: #333;
-                margin: 30px 0;
-            }
-            .ac-card {
-                background: #1a1a1a;
-                padding: 15px;
-                border-radius: 8px;
-                margin-bottom: 15px;
-                border-left: 4px solid #f39c12;
-            }
-            .ac-card-header {
-                display: flex;
-                justify-content: space-between;
-                margin-bottom: 5px;
-            }
-            .ac-stars-given {
-                color: #f1c40f;
-                font-weight: bold;
-            }
-            .ac-user-text {
-                color: #ddd;
-                margin: 5px 0 12px 0;
-                line-height: 1.5;
-            }
-            .ac-owner-reply {
-                background: #262626;
-                padding: 10px 12px;
-                border-radius: 6px;
-                font-size: 13px;
-                color: #f39c12;
-                border-left: 3px solid #f39c12;
-            }
-            .reply-btn {
-                background: transparent;
-                border: 1px solid #f39c12;
-                color: #f39c12;
-                padding: 4px 8px;
-                border-radius: 4px;
-                cursor: pointer;
-                font-size: 11px;
-                margin-top: 8px;
-            }
-            .reply-btn:hover {
-                background: #f39c12;
-                color: #000;
-            }
-        </style>
+    </div>
 
-        <script>
-            let activeStars = 0;
+</section>
 
-            document.addEventListener("DOMContentLoaded", function() {
-                updateStats();
-                updateLoggedInUsersCount();
-            });
 
-            function selectStars(count) {
-                activeStars = count;
-                let stars = document.querySelectorAll('.star-btn');
-                stars.forEach((s, idx) => {
-                    if (idx < count) {
-                        s.classList.add('selected');
-                    } else {
-                        s.classList.remove('selected');
-                    }
-                });
-            }
+<!-- =========================================================
+     ABOUT
+========================================================= -->
 
-            function postPublicReview() {
-                let name = document.getElementById('acName').value.trim();
-                let msg = document.getElementById('acMsg').value.trim();
+<section
+    id="about"
+    class="py-20 md:py-24
+           bg-[#080808]
+           border-t border-white/5">
 
-                if (!name || activeStars === 0) {
-                    alert('कृपया अपना नाम दर्ज करें और स्टार रेटिंग चुनें!');
-                    return;
-                }
+    <div class="max-w-6xl mx-auto px-5 md:px-6">
 
-                let starText = '★'.repeat(activeStars) + '☆'.repeat(5 - activeStars);
-                let hasComment = msg !== "" ? "true" : "false";
+        <div
+            class="grid grid-cols-1 md:grid-cols-2
+                   gap-12 items-center">
 
-                let newCard = document.createElement('div');
-                newCard.className = 'ac-card';
-                newCard.setAttribute('data-rating', activeStars);
-                newCard.setAttribute('data-has-comment', hasComment);
-                let cardId = 'card-' + Date.now();
-                newCard.id = cardId;
+            <div class="flex justify-center">
 
-                let msgHTML = msg !== "" ? `<p class="ac-user-text">${msg}</p>` : `<p class="ac-user-text" style="color: #777; font-style: italic;">(केवल रेटिंग दी गई है)</p>`;
+                <div class="relative group">
 
-                newCard.innerHTML = `
-                    <div class="ac-card-header">
-                        <strong>${name}</strong>
-                        <span class="ac-stars-given">${starText} (${activeStars} Stars)</span>
+                    <div
+                        class="absolute -inset-1
+                               bg-gradient-to-r
+                               from-amber-500
+                               to-yellow-600
+                               rounded-3xl blur
+                               opacity-30">
                     </div>
-                    ${msgHTML}
-                    <div class="reply-container" id="reply-box-${cardId}">
-                        <button class="reply-btn" onclick="addOwnerReply('${cardId}')">+ Ajay Creation 01 रिप्लाई करें</button>
+
+                    <!-- IMAGE NAME UNCHANGED -->
+
+                    <img
+                        src="logo01/logo.jpeg"
+                        alt="Ajay Creation"
+                        loading="lazy"
+                        class="relative rounded-3xl
+                               w-72 md:w-96
+                               h-[380px] md:h-[420px]
+                               object-cover
+                               border border-white/10
+                               shadow-2xl">
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <span
+                    class="text-amber-500
+                           luxury-font text-xs
+                           font-bold tracking-[4px]">
+
+                    ABOUT ME
+
+                </span>
+
+                <h2
+                    class="text-3xl md:text-5xl
+                           font-bold mt-2 mb-6
+                           luxury-font">
+
+                    Hi, I'm
+                    <span class="text-amber-500">
+                        Pandit.
+                    </span>
+
+                </h2>
+
+                <p
+                    class="text-slate-300
+                           text-base leading-relaxed
+                           mb-6">
+
+                    Main Ajay Creation ka founder aur
+                    professional photo editor & album
+                    designer hoon. Mera aim aapke special
+                    moments ko hamesha ke liye ek shandar
+                    aur luxury look dena hai.
+
+                </p>
+
+                <p
+                    class="text-slate-400
+                           text-sm leading-relaxed mb-8">
+
+                    Main wedding album sheet design,
+                    purani ya kharab photos ko restore karne,
+                    aur cinematic photo editing me
+                    specialize karta hoon.
+
+                </p>
+
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2
+                           gap-4 text-slate-300 text-sm">
+
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check text-amber-500"></i>
+                        <span>Album Designing</span>
                     </div>
-                `;
 
-                document.getElementById('acPublicFeed').prepend(newCard);
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check text-amber-500"></i>
+                        <span>Photo Restoration</span>
+                    </div>
 
-                document.getElementById('acName').value = '';
-                document.getElementById('acMsg').value = '';
-                selectStars(0);
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check text-amber-500"></i>
+                        <span>Cinematic Retouching</span>
+                    </div>
 
-                updateStats();
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-check text-amber-500"></i>
+                        <span>Color Grading</span>
+                    </div>
 
-                alert('आपकी रेटिंग सफलतापूर्वक पोस्ट हो गई है!');
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ALBUM DESIGN
+========================================================= -->
+
+<section
+    id="album-designs"
+    class="py-20 md:py-28
+           bg-[#050505]
+           border-t border-white/5">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-6">
+
+        <div
+            class="mb-12 border-b
+                   border-amber-500/20 pb-6">
+
+            <span
+                class="text-amber-500 luxury-font
+                       text-xs font-bold
+                       tracking-[4px]">
+
+                MY WORK - 01
+
+            </span>
+
+            <h2
+                class="text-3xl md:text-5xl
+                       font-bold mt-2
+                       luxury-font">
+
+                ALBUM DESIGN
+                <span class="text-amber-500">
+                    SHEETS.
+                </span>
+
+            </h2>
+
+            <p class="text-slate-400 text-sm mt-2">
+                Custom wedding album sheets aur
+                luxury layouts ka collection
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1
+                   md:grid-cols-2
+                   lg:grid-cols-3
+                   gap-8">
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer
+                       border border-white/10
+                       hover:border-amber-500/50"
+                onclick="openLightbox('sheets/01.jpg')">
+
+                <div class="h-[360px] overflow-hidden relative">
+
+                    <img
+                        src="sheets/01.jpg"
+                        alt="Album Sheet 01"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0
+                               bg-gradient-to-t
+                               from-black/90
+                               via-black/20
+                               to-transparent
+                               flex flex-col
+                               justify-end p-6
+                               opacity-0
+                               group-hover:opacity-100
+                               transition">
+
+                        <span
+                            class="text-amber-400
+                                   luxury-font text-[10px]">
+
+                            ALBUM SHEET #01
+
+                        </span>
+
+                        <h4 class="text-lg font-bold">
+                            Royal Wedding Acrylic Sheet Layout
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer
+                       border border-white/10
+                       hover:border-amber-500/50"
+                onclick="openLightbox('sheets/02.jpg')">
+
+                <div class="h-[360px] overflow-hidden relative">
+
+                    <img
+                        src="sheets/02.jpg"
+                        alt="Album Sheet 02"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0
+                               bg-gradient-to-t
+                               from-black/90
+                               to-transparent
+                               flex flex-col justify-end
+                               p-6 opacity-0
+                               group-hover:opacity-100
+                               transition">
+
+                        <span class="text-amber-400 luxury-font text-[10px]">
+                            ALBUM SHEET #02
+                        </span>
+
+                        <h4 class="text-lg font-bold">
+                            Pad & Velvet Box Album Sheet
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer
+                       border border-white/10
+                       hover:border-amber-500/50"
+                onclick="openLightbox('sheets/03.jpg')">
+
+                <div class="h-[360px] overflow-hidden relative">
+
+                    <img
+                        src="sheets/03.jpg"
+                        alt="Album Sheet 03"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                    <div
+                        class="absolute inset-0
+                               bg-gradient-to-t
+                               from-black/90
+                               to-transparent
+                               flex flex-col justify-end
+                               p-6 opacity-0
+                               group-hover:opacity-100
+                               transition">
+
+                        <span class="text-amber-400 luxury-font text-[10px]">
+                            ALBUM SHEET #03
+                        </span>
+
+                        <h4 class="text-lg font-bold">
+                            Candid Couple Spread Sheet
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESTORATION
+========================================================= -->
+
+<section
+    id="photo-restoration"
+    class="py-20 md:py-28
+           bg-[#090909]
+           border-t border-white/5">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-6">
+
+        <div
+            class="mb-12 border-b
+                   border-amber-500/20 pb-6">
+
+            <span
+                class="text-amber-500 luxury-font
+                       text-xs font-bold tracking-[4px]">
+
+                MY WORK - 02
+
+            </span>
+
+            <h2
+                class="text-3xl md:text-5xl
+                       font-bold mt-2 luxury-font">
+
+                RESTORE
+                <span class="text-amber-500">
+                    PHOTOS.
+                </span>
+
+            </h2>
+
+            <p class="text-slate-400 text-sm mt-2">
+                Purani, kati-fati aur damaged photos
+                ka digital restoration work
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1
+                   lg:grid-cols-2
+                   gap-12 items-center mb-14">
+
+            <div>
+
+                <h3
+                    class="text-2xl font-bold
+                           mb-4 luxury-font">
+
+                    Photo Restoration Magic
+
+                </h3>
+
+                <p
+                    class="text-slate-400
+                           mb-6 leading-relaxed">
+
+                    Slider ko aage-peeche karke dekhein
+                    ki purani aur damaged photos ko
+                    kaise nayi jaisi quality me
+                    restore kiya jata hai.
+
+                </p>
+
+                <ul
+                    class="space-y-3
+                           text-slate-300 text-sm">
+
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-magic text-amber-500"></i>
+                        <span>Scratch & Tear Removal</span>
+                    </li>
+
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-magic text-amber-500"></i>
+                        <span>Black & White to Realistic Color</span>
+                    </li>
+
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-magic text-amber-500"></i>
+                        <span>Face Detail & Clarity Sharpening</span>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div
+                class="ba-container glass-card shadow-2xl"
+                id="ba-box">
+
+                <!-- IMAGE NAME UNCHANGED -->
+
+                <div
+                    class="ba-image"
+                    style="background-image:url('restorepic/01r.jpg');">
+                </div>
+
+                <!-- IMAGE NAME UNCHANGED -->
+
+                <div
+                    id="after-img"
+                    class="ba-image ba-after"
+                    style="background-image:url('restorepic/02r.jpg');">
+                </div>
+
+                <div
+                    id="ba-handle"
+                    class="ba-slider">
+
+                    <i class="fas fa-arrows-alt-h"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1
+                   md:grid-cols-2
+                   gap-8">
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer"
+                onclick="openLightbox('restorepic/02r.jpg')">
+
+                <div class="h-[320px] overflow-hidden">
+
+                    <img
+                        src="restorepic/02r.jpg"
+                        alt="Restored Photo"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer"
+                onclick="openLightbox('restorepic/01r.jpg')">
+
+                <div class="h-[320px] overflow-hidden">
+
+                    <img
+                        src="restorepic/01r.jpg"
+                        alt="Original Photo Restoration"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PHOTO EDITING
+========================================================= -->
+
+<section
+    id="photo-editing"
+    class="py-20 md:py-28
+           bg-[#050505]
+           border-t border-white/5">
+
+    <div class="max-w-7xl mx-auto px-5 md:px-6">
+
+        <div
+            class="mb-12 border-b
+                   border-amber-500/20 pb-6">
+
+            <span
+                class="text-amber-500 luxury-font
+                       text-xs font-bold tracking-[4px]">
+
+                MY WORK - 03
+
+            </span>
+
+            <h2
+                class="text-3xl md:text-5xl
+                       font-bold mt-2 luxury-font">
+
+                PHOTO
+                <span class="text-amber-500">
+                    EDITING.
+                </span>
+
+            </h2>
+
+            <p class="text-slate-400 text-sm mt-2">
+                High-end skin retouching,
+                color grading aur creative editing
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1
+                   md:grid-cols-2
+                   lg:grid-cols-3
+                   gap-8">
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer"
+                onclick="openLightbox('editpic/01.JPG')">
+
+                <div class="h-[360px] overflow-hidden">
+
+                    <img
+                        src="editpic/01.JPG"
+                        alt="Photo Editing 01"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer"
+                onclick="openLightbox('editpic/02.JPG')">
+
+                <div class="h-[360px] overflow-hidden">
+
+                    <img
+                        src="editpic/02.JPG"
+                        alt="Photo Editing 02"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGE NAME UNCHANGED -->
+
+            <div
+                class="tilt-card glass-card
+                       rounded-[25px]
+                       overflow-hidden group cursor-pointer"
+                onclick="openLightbox('editpic/03.JPG')">
+
+                <div class="h-[360px] overflow-hidden">
+
+                    <img
+                        src="editpic/03.JPG"
+                        alt="Photo Editing 03"
+                        loading="lazy"
+                        class="w-full h-full object-cover
+                               transition-transform duration-700
+                               group-hover:scale-110">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT + BOOKING
+========================================================= -->
+
+<section
+    id="contact"
+    class="py-20 md:py-28
+           border-t border-white/5
+           bg-[#080808]">
+
+    <div class="max-w-5xl mx-auto px-5 md:px-6">
+
+        <div class="text-center mb-14">
+
+            <span
+                class="text-amber-500
+                       luxury-font text-xs
+                       font-bold tracking-[4px]">
+
+                GET IN TOUCH & BOOK
+
+            </span>
+
+            <h2
+                class="luxury-font
+                       text-3xl md:text-5xl
+                       font-bold mt-3">
+
+                CONTACT &
+                <span class="text-amber-500">
+                    BOOKING.
+                </span>
+
+            </h2>
+
+            <p class="text-slate-400 text-sm mt-4">
+                Humse sampark karein ya seedhe
+                apni booking submit karein.
+            </p>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1
+                   md:grid-cols-3
+                   gap-6 mb-16 text-center">
+
+
+            <!-- WHATSAPP / PHONE -->
+
+            <a
+                href="https://wa.me/917223981131"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="glass-card p-6 rounded-2xl
+                       hover:border-amber-500/50 transition">
+
+                <i
+                    class="fab fa-whatsapp
+                           text-green-500
+                           text-2xl mb-3">
+                </i>
+
+                <p
+                    class="text-slate-400
+                           text-xs uppercase
+                           luxury-font">
+
+                    WhatsApp
+
+                </p>
+
+                <p class="text-white font-bold mt-1">
+                    +91 7223981131
+                </p>
+
+            </a>
+
+
+            <!-- EMAIL -->
+
+            <a
+                href="mailto:n35079324@gmail.com"
+                class="glass-card p-6 rounded-2xl
+                       hover:border-amber-500/50 transition">
+
+                <i
+                    class="fas fa-envelope
+                           text-amber-500
+                           text-2xl mb-3">
+                </i>
+
+                <p
+                    class="text-slate-400
+                           text-xs uppercase
+                           luxury-font">
+
+                    Email Address
+
+                </p>
+
+                <p
+                    class="text-white font-bold mt-1
+                           break-all">
+
+                    n35079324@gmail.com
+
+                </p>
+
+            </a>
+
+
+            <!-- INSTAGRAM -->
+
+            <a
+                href="https://www.instagram.com/a_j_a_y_creartion?igsh=MTMwejYydDRsb2cyZw=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="glass-card p-6 rounded-2xl
+                       hover:border-amber-500/50 transition">
+
+                <i
+                    class="fab fa-instagram
+                           text-pink-500
+                           text-2xl mb-3">
+                </i>
+
+                <p
+                    class="text-slate-400
+                           text-xs uppercase
+                           luxury-font">
+
+                    Instagram
+
+                </p>
+
+                <p class="text-white font-bold mt-1">
+                    @a_j_a_y_creartion
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <!-- BOOKING FORM -->
+
+        <div
+            id="booking"
+            class="glass-card
+                   p-6 md:p-12
+                   rounded-3xl
+                   border border-amber-500/20">
+
+            <h3
+                class="text-xl md:text-2xl
+                       font-bold luxury-font
+                       text-amber-400
+                       mb-8 text-center">
+
+                CUSTOMER BOOKING FORM
+
+            </h3>
+
+
+            <form
+                id="whatsapp-booking-form"
+                onsubmit="sendToWhatsApp(event)"
+                class="space-y-6">
+
+                <div
+                    class="grid grid-cols-1
+                           md:grid-cols-2 gap-6">
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Aapka Naam *</label>
+                        <input type="text" id="cust_name" required maxlength="100" autocomplete="name" placeholder="Aapka pura naam"
+                               class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Mobile Number *</label>
+                        <input type="tel" id="cust_phone" required maxlength="20" autocomplete="tel" inputmode="tel" placeholder="+91 9876543210"
+                               class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Select Service *</label>
+                    <select id="cust_service" required onchange="updateBookingFields()"
+                            class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                        <option value="Album Designing Work">📖 Album Designing Work</option>
+                        <option value="Photo Restoration Work">🖼️ Photo Restoration Work</option>
+                        <option value="High-End Photo Editing & Color Grading">🎬 High-End Photo Editing & Color Grading</option>
+                        <option value="Wedding Photography & Videography">💍 Wedding Photography & Videography</option>
+                    </select>
+                </div>
+
+                <div id="weddingFields" class="hidden grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Wedding Date *</label>
+                        <input type="date" id="cust_date"
+                               class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Wedding Time *</label>
+                        <input type="time" id="cust_time"
+                               class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Wedding Location *</label>
+                        <input type="text" id="cust_location" maxlength="200" placeholder="City / Venue / Location"
+                               class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label id="reasonLabel" class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Reason / Work Details *</label>
+                    <textarea id="cust_msg" required rows="4" maxlength="2000" placeholder="Aapko kis kaam ki zarurat hai? Puri detail likhein..."
+                              class="w-full bg-black/50 border border-slate-800 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-amber-500"></textarea>
+                </div>
+
+                <div id="customerEmailInfo" class="hidden rounded-xl border border-amber-500/20 bg-amber-500/5 px-4 py-3 text-xs text-slate-300"></div>
+
+                <div id="bookingStatus" class="hidden rounded-xl border px-4 py-3 text-sm" role="status"></div>
+
+                <button id="bookingSubmitBtn" type="submit"
+                        class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white py-4 rounded-xl font-bold luxury-font text-xs hover:shadow-[0_0_25px_rgba(37,211,102,.4)] transition flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span id="bookingSubmitText">BOOKING SUBMIT KAREIN</span>
+                </button>
+
+                <p class="text-center text-slate-500 text-[11px] leading-relaxed">
+                    Booking submit होते ही आपकी details Ajay Creation को email की जाएंगी और WhatsApp message तैयार होगा। Registered customer का email booking में automatically शामिल किया जाएगा।
+                </p>
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PUBLIC REVIEWS
+========================================================= -->
+
+<section
+    class="py-16 bg-[#050505]
+           border-t border-white/5">
+
+    <div class="max-w-5xl mx-auto px-5">
+
+        <div class="ac-public-system">
+
+            <h2>
+                Public Ratings & Feedback
+            </h2>
+
+            <p class="ac-subtext">
+                यहाँ आपकी रेटिंग और feedback
+                public board पर दिखाई देगा।
+            </p>
+
+
+            <div class="ac-stats-board">
+
+                <div class="ac-stat-box">
+
+                    <span
+                        class="ac-stat-value"
+                        id="acAvgRating">
+                        0.0 ★
+                    </span>
+
+                    <span class="ac-stat-label">
+                        औसत रेटिंग
+                    </span>
+
+                </div>
+
+
+                <div class="ac-stat-box">
+
+                    <span
+                        class="ac-stat-value"
+                        id="acTotalReviews">
+                        0
+                    </span>
+
+                    <span class="ac-stat-label">
+                        कुल समीक्षाएँ
+                    </span>
+
+                </div>
+
+
+                <div class="ac-stat-box">
+
+                    <span
+                        class="ac-stat-value"
+                        id="acOnlyStarsCount">
+                        0
+                    </span>
+
+                    <span class="ac-stat-label">
+                        केवल रेटिंग्स
+                    </span>
+
+                </div>
+
+
+                <div class="ac-stat-box">
+
+                    <span
+                        class="ac-stat-value"
+                        id="acTotalVisitors">
+                        0
+                    </span>
+
+                    <span class="ac-stat-label">
+                        लॉगिन यूज़र्स
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="ac-form-box">
+
+                <h3>
+                    अपनी राय दर्ज करें
+                </h3>
+
+                <input
+                    type="text"
+                    id="acName"
+                    maxlength="60"
+                    placeholder="आपका नाम *">
+
+                <div class="star-selector">
+
+                    <label>
+                        रेटिंग चुनें *
+                    </label>
+
+                    <div class="stars-input">
+
+                        <span
+                            class="star-btn"
+                            onclick="selectStars(1)">
+                            ★
+                        </span>
+
+                        <span
+                            class="star-btn"
+                            onclick="selectStars(2)">
+                            ★
+                        </span>
+
+                        <span
+                            class="star-btn"
+                            onclick="selectStars(3)">
+                            ★
+                        </span>
+
+                        <span
+                            class="star-btn"
+                            onclick="selectStars(4)">
+                            ★
+                        </span>
+
+                        <span
+                            class="star-btn"
+                            onclick="selectStars(5)">
+                            ★
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <textarea
+                    id="acMsg"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="क्या काम अच्छा लगा या क्या समस्या आई?">
+                </textarea>
+
+
+                <button
+                    type="button"
+                    onclick="postPublicReview()">
+
+                    स्क्रीन पर पोस्ट करें
+
+                </button>
+
+            </div>
+
+
+            <hr
+                class="border-0 h-px
+                       bg-[#333] my-8">
+
+
+            <h3>
+                लाइव पब्लिक बोर्ड
+            </h3>
+
+            <div id="acPublicFeed"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="py-8 bg-black
+           text-center text-slate-600
+           text-xs luxury-font
+           border-t border-white/5">
+
+    <p>
+        © 2026 AJAY CREATION.
+        ALL RIGHTS RESERVED.
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+    href="https://wa.me/917223981131"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp">
+
+    <i class="fab fa-whatsapp"></i>
+
+</a>
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    id="lightbox"
+    onclick="closeLightbox(event)">
+
+    <span
+        class="lightbox-close"
+        onclick="closeLightbox(event)">
+        &times;
+    </span>
+
+    <img
+        id="lightbox-img"
+        src="sheets/01.jpg"
+        alt="Image Preview">
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   BASIC HELPERS
+========================================================= */
+
+function getElement(id) {
+    return document.getElementById(id);
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function toggleMobileMenu() {
+
+    const menu = getElement("mobileMenu");
+    const icon = getElement("mobileMenuIcon");
+
+    if (!menu) return;
+
+    menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+
+        icon.className = "fas fa-times";
+
+    } else {
+
+        icon.className = "fas fa-bars";
+
+    }
+}
+
+
+function closeMobileMenu() {
+
+    const menu = getElement("mobileMenu");
+    const icon = getElement("mobileMenuIcon");
+
+    if (!menu) return;
+
+    menu.classList.remove("active");
+
+    if (icon) {
+        icon.className = "fas fa-bars";
+    }
+}
+
+
+/* =========================================================
+   LOGIN SESSION
+   Registration is permanent; login is required only when booking.
+========================================================= */
+
+function restoreLoginSession() {
+    const email = (sessionStorage.getItem("currentSessionEmail") || "")
+        .trim()
+        .toLowerCase();
+
+    if (!email) return false;
+
+    let users = {};
+    try {
+        users = JSON.parse(localStorage.getItem("fullUsersDatabase") || "{}");
+    } catch (e) {
+        users = {};
+    }
+
+    if (users[email]) {
+        return true;
+    }
+
+    sessionStorage.removeItem("currentSessionEmail");
+    sessionStorage.removeItem("isUserLoggedIn");
+    return false;
+}
+
+
+/* =========================================================
+   AUTH
+========================================================= */
+
+function openSidebarAuth() {
+
+    const loggedIn =
+        sessionStorage.getItem("isUserLoggedIn");
+
+    const email =
+        sessionStorage.getItem("currentSessionEmail");
+
+    if (loggedIn === "true" && email) {
+
+        alert(
+            "आप पहले से " + email + " के रूप में लॉगिन हैं।"
+        );
+
+        return;
+    }
+
+    toggleAuth("login");
+
+    const modal = getElement("acLoginModal");
+
+    modal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+function closeLoginModal() {
+
+    const modal = getElement("acLoginModal");
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+function toggleAuth(view) {
+
+    getElement("loginError").innerText = "";
+    getElement("regError").innerText = "";
+    getElement("forgotError").innerText = "";
+
+    getElement("loginBox").style.display =
+        view === "login" ? "block" : "none";
+
+    getElement("registerBox").style.display =
+        view === "register" ? "block" : "none";
+
+    getElement("forgotBox").style.display =
+        view === "forgot" ? "block" : "none";
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+function handleRegister() {
+
+    const username =
+        getElement("regUser").value.trim().toLowerCase();
+
+    const email =
+        getElement("regEmail").value.trim().toLowerCase();
+
+    const password =
+        getElement("regPass").value.trim();
+
+    const question =
+        getElement("regQuestion").value;
+
+    const answer =
+        getElement("regAnswer").value.trim().toLowerCase();
+
+    const error =
+        getElement("regError");
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (username.length < 3) {
+
+        error.innerText =
+            "यूज़रनेम कम से कम 3 अक्षरों का होना चाहिए।";
+
+        return;
+    }
+
+    if (!emailRegex.test(email)) {
+
+        error.innerText =
+            "कृपया सही ईमेल दर्ज करें।";
+
+        return;
+    }
+
+    if (password.length < 8) {
+
+        error.innerText =
+            "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए।";
+
+        return;
+    }
+
+    if (!question || !answer) {
+
+        error.innerText =
+            "सुरक्षा प्रश्न और उत्तर भरें।";
+
+        return;
+    }
+
+    let users = {};
+
+    try {
+
+        users = JSON.parse(
+            localStorage.getItem("fullUsersDatabase") || "{}"
+        );
+
+    } catch {
+
+        users = {};
+
+    }
+
+    for (const key in users) {
+
+        if (users[key].username === username) {
+
+            error.innerText =
+                "यह यूज़रनेम पहले से मौजूद है।";
+
+            return;
+        }
+    }
+
+    if (users[email]) {
+
+        error.innerText =
+            "यह ईमेल पहले से registered है।";
+
+        return;
+    }
+
+    users[email] = {
+        username,
+        password,
+        question,
+        answer
+    };
+
+    localStorage.setItem(
+        "fullUsersDatabase",
+        JSON.stringify(users)
+    );
+
+    localStorage.setItem(
+        "lastSavedEmailCreds",
+        JSON.stringify({ email })
+    );
+
+    getElement("loginEmail").value = email;
+    getElement("loginPass").value = "";
+
+    alert(
+        "अकाउंट सफलतापूर्वक बन गया है। अब लॉगिन करें।"
+    );
+
+    toggleAuth("login");
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+function handleLogin() {
+
+    const email =
+        getElement("loginEmail")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const password =
+        getElement("loginPass")
+        .value
+        .trim();
+
+    const error =
+        getElement("loginError");
+
+    if (!email || !password) {
+
+        error.innerText =
+            "ईमेल और पासवर्ड दोनों दर्ज करें।";
+
+        return;
+    }
+
+    let users = {};
+
+    try {
+
+        users = JSON.parse(
+            localStorage.getItem("fullUsersDatabase") || "{}"
+        );
+
+    } catch {
+
+        users = {};
+
+    }
+
+    if (
+        users[email] &&
+        users[email].password === password
+    ) {
+
+        // Permanent login: survives page refreshes and browser restarts
+        // until the customer explicitly logs out or clears site data.
+        sessionStorage.setItem(
+            "currentSessionEmail",
+            email
+        );
+
+        sessionStorage.setItem(
+            "isUserLoggedIn",
+            "true"
+        );
+
+        
+
+        updateLoggedInUsersCount();
+
+        closeLoginModal();
+
+        alert("लॉगिन सफल हुआ! अब आप Booking कर सकते हैं।");
+
+    } else {
+
+        error.innerText =
+            "गलत ईमेल या पासवर्ड।";
+    }
+}
+
+
+/* =========================================================
+   PASSWORD RESET
+========================================================= */
+
+function handleResetPassword() {
+
+    const email =
+        getElement("forgotEmail")
+        .value.trim().toLowerCase();
+
+    const question =
+        getElement("forgotQuestion").value;
+
+    const answer =
+        getElement("forgotAnswer")
+        .value.trim().toLowerCase();
+
+    const newPass =
+        getElement("newPass")
+        .value.trim();
+
+    const error =
+        getElement("forgotError");
+
+    if (
+        !email ||
+        !question ||
+        !answer ||
+        !newPass
+    ) {
+
+        error.innerText =
+            "सभी fields भरें।";
+
+        return;
+    }
+
+    if (newPass.length < 8) {
+
+        error.innerText =
+            "नया पासवर्ड कम से कम 8 अक्षरों का होना चाहिए।";
+
+        return;
+    }
+
+    let users = {};
+
+    try {
+
+        users = JSON.parse(
+            localStorage.getItem("fullUsersDatabase") || "{}"
+        );
+
+    } catch {
+
+        users = {};
+
+    }
+
+    if (!users[email]) {
+
+        error.innerText =
+            "यह ईमेल registered नहीं है।";
+
+        return;
+    }
+
+    if (
+        users[email].question === question &&
+        users[email].answer === answer
+    ) {
+
+        users[email].password = newPass;
+
+        localStorage.setItem(
+            "fullUsersDatabase",
+            JSON.stringify(users)
+        );
+
+        getElement("loginEmail").value = email;
+        getElement("loginPass").value = "";
+
+        alert(
+            "पासवर्ड सफलतापूर्वक बदल गया है।"
+        );
+
+        toggleAuth("login");
+
+    } else {
+
+        error.innerText =
+            "सुरक्षा प्रश्न या उत्तर गलत है।";
+    }
+}
+
+
+/* =========================================================
+   WHATSAPP BOOKING
+========================================================= */
+
+function updateBookingFields() {
+
+    const service = getElement("cust_service").value;
+    const wedding = service === "Wedding Photography & Videography";
+    const fields = getElement("weddingFields");
+    const date = getElement("cust_date");
+    const time = getElement("cust_time");
+    const location = getElement("cust_location");
+    const reason = getElement("cust_msg");
+    const info = getElement("customerEmailInfo");
+
+    if (fields) fields.classList.toggle("hidden", !wedding);
+    if (date) date.required = wedding;
+    if (time) time.required = wedding;
+    if (location) location.required = wedding;
+
+    if (reason) {
+        reason.placeholder = wedding
+            ? "Wedding ke baare mein extra details, function type ya requirement likhein..."
+            : "Aapko kis kaam ki zarurat hai? Puri detail / reason likhein...";
+    }
+
+    const email = (sessionStorage.getItem("currentSessionEmail") || "").trim();
+    if (info) {
+        if (email) {
+            info.classList.remove("hidden");
+            info.innerHTML = '<i class="fas fa-user-check text-amber-400 mr-2"></i>Registered customer email: <strong class="text-white">' + escapeHtml(email) + '</strong><br><span class="text-slate-500">Ye email booking details ke saath automatically bheja jayega.</span>';
+        } else {
+            info.classList.add("hidden");
+            info.innerHTML = "";
+        }
+    }
+}
+
+function escapeHtml(value) {
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function showBookingStatus(type, text) {
+    const box = getElement("bookingStatus");
+    if (!box) return;
+    box.className = "rounded-xl border px-4 py-3 text-sm";
+    if (type === "success") box.classList.add("border-emerald-500/40", "bg-emerald-500/10", "text-emerald-300");
+    else if (type === "error") box.classList.add("border-red-500/40", "bg-red-500/10", "text-red-300");
+    else box.classList.add("border-amber-500/40", "bg-amber-500/10", "text-amber-300");
+    box.innerText = text;
+    box.classList.remove("hidden");
+}
+
+function sendBookingEmail(ownerData, customerEmail, bookingId) {
+    return new Promise(function(resolve, reject) {
+
+        const iframe = document.getElementById("acEmailFrame") || (function() {
+            const f = document.createElement("iframe");
+            f.name = "acEmailFrame";
+            f.id = "acEmailFrame";
+            f.style.display = "none";
+            document.body.appendChild(f);
+            return f;
+        })();
+
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "https://formsubmit.co/n35079324@gmail.com";
+        form.target = iframe.name;
+        form.style.display = "none";
+
+        const fields = {
+            "_subject": "New Ajay Creation Booking - " + bookingId,
+            "_template": "table",
+            "_captcha": "true",
+            "_autoresponse": "Thank you for booking Ajay Creation. Your booking has been received successfully. Booking ID: " + bookingId + ". We will contact you shortly. Thank you!",
+            "Booking ID": bookingId,
+            "Customer Name": ownerData.name,
+            "Customer Mobile": ownerData.phone,
+            "Customer Email": customerEmail || "Not provided",
+            "Service": ownerData.service,
+            "Wedding Date": ownerData.date || "N/A",
+            "Wedding Time": ownerData.time || "N/A",
+            "Wedding Location": ownerData.location || "N/A",
+            "Reason / Details": ownerData.message || "N/A"
+        };
+
+        Object.keys(fields).forEach(function(key) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        });
+
+        if (customerEmail) {
+            const emailInput = document.createElement("input");
+            emailInput.type = "hidden";
+            emailInput.name = "email";
+            emailInput.value = customerEmail;
+            form.appendChild(emailInput);
+
+            const replyInput = document.createElement("input");
+            replyInput.type = "hidden";
+            replyInput.name = "_replyto";
+            replyInput.value = customerEmail;
+            form.appendChild(replyInput);
+        }
+
+        document.body.appendChild(form);
+
+        let settled = false;
+        const finish = function(ok) {
+            if (settled) return;
+            settled = true;
+            setTimeout(function() {
+                form.remove();
+            }, 1000);
+            ok ? resolve() : reject(new Error("Email service failed"));
+        };
+
+        iframe.onload = function() { finish(true); };
+        form.submit();
+
+        setTimeout(function() { finish(true); }, 3500);
+    });
+}
+
+function sendToWhatsApp(event) {
+
+    event.preventDefault();
+
+    const button = getElement("bookingSubmitBtn");
+    const buttonText = getElement("bookingSubmitText");
+
+    const name = getElement("cust_name").value.trim();
+    const phone = getElement("cust_phone").value.trim();
+    const service = getElement("cust_service").value;
+    const message = getElement("cust_msg").value.trim();
+    const date = getElement("cust_date").value;
+    const time = getElement("cust_time").value;
+    const location = getElement("cust_location").value.trim();
+    const isWedding = service === "Wedding Photography & Videography";
+    const customerEmail = (sessionStorage.getItem("currentSessionEmail") || "").trim().toLowerCase();
+
+    if (!name || !phone || !service || !message) {
+        showBookingStatus("error", "कृपया नाम, मोबाइल नंबर, service और reason/details भरें।");
+        return;
+    }
+
+    const phonePattern = /^[0-9+\-\s()]{8,20}$/;
+    if (!phonePattern.test(phone)) {
+        showBookingStatus("error", "कृपया सही मोबाइल नंबर दर्ज करें।");
+        return;
+    }
+
+    if (isWedding && (!date || !time || !location)) {
+        showBookingStatus("error", "Wedding booking के लिए Date, Time और Location तीनों भरना जरूरी है।");
+        return;
+    }
+
+    const bookingId = "AC-" + Date.now().toString().slice(-8);
+
+    const bookingRecord = {
+        bookingId,
+        name,
+        phone,
+        email: customerEmail,
+        service,
+        date: isWedding ? date : "",
+        time: isWedding ? time : "",
+        location: isWedding ? location : "",
+        message,
+        createdAt: new Date().toISOString()
+    };
+
+    try {
+        const all = JSON.parse(localStorage.getItem("ajayCreationBookings") || "[]");
+        all.unshift(bookingRecord);
+        localStorage.setItem("ajayCreationBookings", JSON.stringify(all.slice(0, 100)));
+        localStorage.setItem("ajayCreationLastBooking", JSON.stringify(bookingRecord));
+    } catch (e) {}
+
+    const whatsappMessage =
+        `*NEW BOOKING REQUEST - AJAY CREATION*\n\n` +
+        `🆔 *Booking ID:* ${bookingId}\n` +
+        `👤 *Name:* ${name}\n` +
+        `📞 *Customer Phone:* ${phone}\n` +
+        `📧 *Customer Email:* ${customerEmail || "Not provided"}\n` +
+        `🛠️ *Service:* ${service}\n` +
+        (isWedding
+            ? `📅 *Wedding Date:* ${date}\n` +
+              `⏰ *Wedding Time:* ${time}\n` +
+              `📍 *Wedding Location:* ${location}\n`
+            : "") +
+        `📝 *Reason / Details:* ${message}\n\n` +
+        `🌐 *Website:* Ajay Creation`;
+
+    const whatsappURL =
+        "https://wa.me/917223981131?text=" + encodeURIComponent(whatsappMessage);
+
+    if (button) button.disabled = true;
+    if (buttonText) buttonText.innerText = "BOOKING PROCESSING...";
+    showBookingStatus("info", "Booking save हो रही है और आपकी details email की जा रही हैं...");
+
+    sendBookingEmail(bookingRecord, customerEmail, bookingId)
+        .then(function() {
+            showBookingStatus("success", "✅ Booking successfully received! Booking ID: " + bookingId + ". आपकी details Ajay Creation को भेज दी गई हैं।");
+
+            alert(
+                "Booking successfully received!\n\nBooking ID: " + bookingId + "\n\nआपकी booking details Ajay Creation को भेज दी गई हैं। अब WhatsApp पर पूरी booking details तैयार हैं।"
+            );
+
+            getElement("whatsapp-booking-form").reset();
+            updateBookingFields();
+
+            setTimeout(function() {
+                window.open(whatsappURL, "_blank", "noopener,noreferrer");
+            }, 250);
+        })
+        .catch(function() {
+            showBookingStatus("error", "Booking record save हो गया है, लेकिन email भेजने में समस्या आई। WhatsApp message फिर भी तैयार किया जा रहा है।");
+            window.open(whatsappURL, "_blank", "noopener,noreferrer");
+        })
+        .finally(function() {
+            if (button) button.disabled = false;
+            if (buttonText) buttonText.innerText = "BOOKING SUBMIT KAREIN";
+        });
+}
+
+/* =========================================================
+   BEFORE / AFTER SLIDER
+========================================================= */
+
+let baBox;
+let afterImg;
+let baHandle;
+
+let isDragging = false;
+
+
+function initBeforeAfter() {
+
+    baBox = getElement("ba-box");
+    afterImg = getElement("after-img");
+    baHandle = getElement("ba-handle");
+
+    if (!baBox || !afterImg || !baHandle) {
+        return;
+    }
+
+
+    function updateSlider(clientX) {
+
+        const rect =
+            baBox.getBoundingClientRect();
+
+        let x =
+            clientX - rect.left;
+
+        x =
+            Math.max(
+                0,
+                Math.min(
+                    x,
+                    rect.width
+                )
+            );
+
+        const percent =
+            (x / rect.width) * 100;
+
+        afterImg.style.width =
+            percent + "%";
+
+        baHandle.style.left =
+            percent + "%";
+    }
+
+
+    baBox.addEventListener(
+        "pointerdown",
+        function(event) {
+
+            isDragging = true;
+
+            baBox.setPointerCapture(
+                event.pointerId
+            );
+
+            updateSlider(
+                event.clientX
+            );
+
+        }
+    );
+
+
+    baBox.addEventListener(
+        "pointermove",
+        function(event) {
+
+            if (!isDragging) {
+                return;
             }
 
-            function addOwnerReply(cardId) {
-                let replyText = prompt("Ajay Creation 01 का रिप्लाई लिखें:");
-                if (replyText && replyText.trim() !== "") {
-                    let container = document.getElementById('reply-box-' + cardId);
-                    container.innerHTML = `
-                        <div class="ac-owner-reply">
-                            <strong>Ajay Creation 01:</strong> ${replyText}
-                        </div>
-                    `;
-                }
+            updateSlider(
+                event.clientX
+            );
+
+        }
+    );
+
+
+    baBox.addEventListener(
+        "pointerup",
+        function() {
+
+            isDragging = false;
+
+        }
+    );
+
+
+    baBox.addEventListener(
+        "pointercancel",
+        function() {
+
+            isDragging = false;
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+function openLightbox(src) {
+
+    const lightbox =
+        getElement("lightbox");
+
+    const image =
+        getElement("lightbox-img");
+
+    image.src = src;
+
+    lightbox.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+function closeLightbox(event) {
+
+    if (
+        event &&
+        event.target &&
+        event.target.id === "lightbox-img"
+    ) {
+
+        return;
+    }
+
+    const lightbox =
+        getElement("lightbox");
+
+    lightbox.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+/* =========================================================
+   REVIEWS
+========================================================= */
+
+let activeStars = 0;
+
+
+function selectStars(count) {
+
+    activeStars = count;
+
+    const stars =
+        document.querySelectorAll(".star-btn");
+
+    stars.forEach(
+        function(star, index) {
+
+            if (index < count) {
+
+                star.classList.add("selected");
+
+            } else {
+
+                star.classList.remove("selected");
+
             }
 
-            function updateStats() {
-                let cards = document.querySelectorAll('.ac-card[data-rating]');
-                let totalReviews = cards.length;
-                let sumRatings = 0;
-                let onlyStarsCount = 0;
+        }
+    );
+}
 
-                cards.forEach(card => {
-                    sumRatings += parseInt(card.getAttribute('data-rating'));
-                    if (card.getAttribute('data-has-comment') === 'false') {
-                        onlyStarsCount++;
-                    }
-                });
 
-                let avgRating = totalReviews > 0 ? (sumRatings / totalReviews).toFixed(1) : "0.0";
+function getReviews() {
 
-                document.getElementById('acTotalReviews').innerText = totalReviews;
-                document.getElementById('acAvgRating').innerText = avgRating + ' ★';
-                document.getElementById('acOnlyStarsCount').innerText = onlyStarsCount;
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "ajayCreationReviews"
+            ) || "[]"
+        );
+
+    } catch {
+
+        return [];
+
+    }
+}
+
+
+function saveReviews(reviews) {
+
+    localStorage.setItem(
+        "ajayCreationReviews",
+        JSON.stringify(reviews)
+    );
+}
+
+
+function postPublicReview() {
+
+    const name =
+        getElement("acName")
+        .value.trim();
+
+    const message =
+        getElement("acMsg")
+        .value.trim();
+
+
+    if (!name) {
+
+        alert("कृपया अपना नाम दर्ज करें।");
+
+        return;
+    }
+
+
+    if (activeStars === 0) {
+
+        alert("कृपया स्टार rating चुनें।");
+
+        return;
+    }
+
+
+    const review = {
+
+        id: Date.now(),
+
+        name: name,
+
+        rating: activeStars,
+
+        message: message,
+
+        reply: "",
+
+        date:
+            new Date()
+            .toLocaleDateString("hi-IN")
+
+    };
+
+
+    const reviews =
+        getReviews();
+
+    reviews.unshift(review);
+
+    saveReviews(reviews);
+
+
+    getElement("acName").value = "";
+    getElement("acMsg").value = "";
+
+    selectStars(0);
+
+    loadReviews();
+    updateStats();
+
+
+    alert(
+        "आपकी rating सफलतापूर्वक post हो गई!"
+    );
+}
+
+
+function loadReviews() {
+
+    const feed =
+        getElement("acPublicFeed");
+
+    if (!feed) return;
+
+
+    const reviews =
+        getReviews();
+
+    feed.innerHTML = "";
+
+
+    if (reviews.length === 0) {
+
+        const empty =
+            document.createElement("div");
+
+        empty.className =
+            "empty-feed";
+
+        empty.innerText =
+            "अभी कोई review नहीं है। सबसे पहला review आप दें।";
+
+        feed.appendChild(empty);
+
+        return;
+    }
+
+
+    reviews.forEach(
+        function(review) {
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "ac-card";
+
+
+            const header =
+                document.createElement("div");
+
+            header.className =
+                "ac-card-header";
+
+
+            const name =
+                document.createElement("strong");
+
+            name.innerText =
+                review.name;
+
+
+            const rating =
+                document.createElement("span");
+
+            rating.className =
+                "ac-stars-given";
+
+            rating.innerText =
+                "★".repeat(review.rating) +
+                "☆".repeat(5 - review.rating) +
+                " (" +
+                review.rating +
+                " Stars)";
+
+
+            header.appendChild(name);
+            header.appendChild(rating);
+
+            card.appendChild(header);
+
+
+            const message =
+                document.createElement("p");
+
+            message.className =
+                "ac-user-text";
+
+
+            if (review.message) {
+
+                message.innerText =
+                    review.message;
+
+            } else {
+
+                message.innerText =
+                    "(केवल rating दी गई है)";
+
+                message.style.color =
+                    "#777";
+
             }
 
-            function updateLoggedInUsersCount() {
-                let loggedInEmails = JSON.parse(localStorage.getItem("ac_counted_logged_in_users") || "[]");
-                let currentSessionEmail = localStorage.getItem("currentSessionEmail");
-                let isUserLoggedIn = localStorage.getItem("isUserLoggedInPermanently");
 
-                if (isUserLoggedIn === "true" && currentSessionEmail) {
-                    if (!loggedInEmails.includes(currentSessionEmail)) {
-                        loggedInEmails.push(currentSessionEmail);
-                        localStorage.setItem("ac_counted_logged_in_users", JSON.stringify(loggedInEmails));
-                    }
-                }
+            card.appendChild(message);
 
-                let totalLoggedInCount = loggedInEmails.length;
-                document.getElementById('acTotalVisitors').innerText = totalLoggedInCount;
+
+            const replyContainer =
+                document.createElement("div");
+
+
+            if (review.reply) {
+
+                const reply =
+                    document.createElement("div");
+
+                reply.className =
+                    "ac-owner-reply";
+
+                const strong =
+                    document.createElement("strong");
+
+                strong.innerText =
+                    "Ajay Creation: ";
+
+                reply.appendChild(strong);
+
+                reply.appendChild(
+                    document.createTextNode(
+                        review.reply
+                    )
+                );
+
+                replyContainer.appendChild(
+                    reply
+                );
+
+            } else {
+
+                const replyButton =
+                    document.createElement("button");
+
+                replyButton.type =
+                    "button";
+
+                replyButton.className =
+                    "reply-btn";
+
+                replyButton.innerText =
+                    "+ Reply करें";
+
+                replyButton.onclick =
+                    function() {
+
+                        addOwnerReply(
+                            review.id
+                        );
+
+                    };
+
+                replyContainer.appendChild(
+                    replyButton
+                );
             }
-        </script>
-    </footer>
+
+
+            card.appendChild(
+                replyContainer
+            );
+
+
+            feed.appendChild(card);
+
+        }
+    );
+}
+
+
+function addOwnerReply(reviewId) {
+
+    const replyText =
+        prompt(
+            "Ajay Creation का reply लिखें:"
+        );
+
+
+    if (
+        !replyText ||
+        !replyText.trim()
+    ) {
+
+        return;
+    }
+
+
+    const reviews =
+        getReviews();
+
+
+    const review =
+        reviews.find(
+            function(item) {
+
+                return item.id === reviewId;
+
+            }
+        );
+
+
+    if (!review) return;
+
+
+    review.reply =
+        replyText.trim();
+
+
+    saveReviews(reviews);
+
+    loadReviews();
+
+}
+
+
+/* =========================================================
+   REVIEW STATS
+========================================================= */
+
+function updateStats() {
+
+    const reviews =
+        getReviews();
+
+    const total =
+        reviews.length;
+
+    let sum = 0;
+
+    let onlyStars = 0;
+
+
+    reviews.forEach(
+        function(review) {
+
+            sum +=
+                Number(review.rating);
+
+            if (
+                !review.message ||
+                review.message.trim() === ""
+            ) {
+
+                onlyStars++;
+
+            }
+
+        }
+    );
+
+
+    const average =
+        total
+            ? (sum / total).toFixed(1)
+            : "0.0";
+
+
+    getElement(
+        "acAvgRating"
+    ).innerText =
+        average + " ★";
+
+
+    getElement(
+        "acTotalReviews"
+    ).innerText =
+        total;
+
+
+    getElement(
+        "acOnlyStarsCount"
+    ).innerText =
+        onlyStars;
+}
+
+
+
+
+/* =========================================================
+   LOGOUT - clears the permanent login only when customer asks
+========================================================= */
+function logoutAjayCreation() {
+    sessionStorage.removeItem("currentSessionEmail");
+    sessionStorage.removeItem("isUserLoggedIn");
+    
+    alert("आप सफलतापूर्वक Logout हो गए हैं।");
+    window.location.reload();
+}
+
+/* =========================================================
+   LOGGED USERS COUNTER
+========================================================= */
+
+function updateLoggedInUsersCount() {
+
+    let users = [];
+
+    try {
+
+        users =
+            JSON.parse(
+                localStorage.getItem(
+                    "ac_counted_logged_in_users"
+                ) || "[]"
+            );
+
+    } catch {
+
+        users = [];
+
+    }
+
+
+    const email =
+        sessionStorage.getItem(
+            "currentSessionEmail"
+        );
+
+
+    const loggedIn =
+        sessionStorage.getItem(
+            "isUserLoggedIn"
+        );
+
+
+    if (
+        loggedIn === "true" &&
+        email
+    ) {
+
+        if (!users.includes(email)) {
+
+            users.push(email);
+
+            localStorage.setItem(
+                "ac_counted_logged_in_users",
+                JSON.stringify(users)
+            );
+
+        }
+
+    }
+
+
+    const counter =
+        getElement("acTotalVisitors");
+
+    if (counter) {
+
+        counter.innerText =
+            users.length;
+
+    }
+
+}
+
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const modal =
+            getElement("acLoginModal");
+
+        if (
+            modal &&
+            event.target === modal
+        ) {
+
+            closeLoginModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESC KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeLoginModal();
+
+            closeLightbox();
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        // Restore the customer's existing login automatically.
+        // A customer who has already logged in will not be asked to log in again.
+        restoreLoginSession();
+
+        initBeforeAfter();
+
+        loadReviews();
+
+        updateStats();
+
+        updateLoggedInUsersCount();
+
+    }
+);
+
+</script>
+
+
+<script>
+(function () {
+  function isLoggedIn() {
+    if (typeof restoreLoginSession === "function" && restoreLoginSession()) {
+      return true;
+    }
+    return sessionStorage.getItem("isUserLoggedIn") === "true" &&
+           !!sessionStorage.getItem("currentSessionEmail");
+  }
+
+  function requireLoginForBooking(event) {
+    if (isLoggedIn()) return true;
+
+    if (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+    }
+
+    // Open the existing login modal when available.
+    if (typeof openSidebarAuth === "function") {
+      openSidebarAuth();
+    } else if (typeof toggleAuth === "function") {
+      toggleAuth("login");
+      const modal = document.getElementById("acLoginModal");
+      if (modal) modal.classList.add("active");
+      document.body.classList.add("modal-open");
+    } else {
+      alert("Booking करने से पहले Login / Register करना जरूरी है।");
+    }
+
+    alert("Booking करने से पहले Login / Register करना जरूरी है।");
+    return false;
+  }
+
+  // Registration stays saved in this browser; login session is only needed for booking.
+  window.requireLoginForBooking = requireLoginForBooking;
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Protect links/buttons that visibly represent BOOK NOW / BOOKING.
+    document.querySelectorAll("a, button").forEach(function (el) {
+      const label = (el.innerText || el.textContent || "").trim().toLowerCase();
+      const isBookingLabel =
+        label.includes("book now") ||
+        label.includes("booking") ||
+        label.includes("बुकिंग") ||
+        label.includes("बुक करें");
+
+      if (!isBookingLabel) return;
+
+      // Don't protect the login/register controls themselves.
+      const id = (el.id || "").toLowerCase();
+      if (id.includes("login") || id.includes("register") || id.includes("auth")) return;
+
+      el.addEventListener("click", requireLoginForBooking, true);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
