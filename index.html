@@ -3,10 +3,6 @@
 
 
 
-
-
-    
-
 <head>
 
 
@@ -14,7 +10,7 @@
      crossorigin="anonymous"></script>
 
 
-    
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
@@ -726,7 +722,7 @@ const supabaseClient = supabase.createClient(
             </option>
 
             <option value="pet">
-                आपके पसंदीदा पालतू जानवर का नाम?
+                आपके पसंदीदा  जानवर का नाम?
             </option>
 
             <option value="school">
@@ -804,7 +800,7 @@ const supabaseClient = supabase.createClient(
             </option>
 
             <option value="pet">
-                आपके पसंदीदा पालतू जानवर का नाम?
+                आपके पसंदीदा  जानवर का नाम?
             </option>
 
             <option value="school">
@@ -3146,112 +3142,119 @@ function selectStars(count) {
 }
 
 
-function getReviews() {
 
-    try {
+async function fetchSupabaseReviews() {
+    const { data, error } = await supabase
+        .from("reviews")
+        .select("*")
+        .order("date", { ascending: false });
 
-        return JSON.parse(
-            localStorage.getItem(
-                "ajayCreationReviews"
-            ) || "[]"
-        );
-
-    } catch {
-
+    if (error) {
+        console.error("Reviews load error:", error);
         return [];
-
     }
+
+    return data || [];
 }
 
 
-function saveReviews(reviews) {
 
-    localStorage.setItem(
-        "ajayCreationReviews",
-        JSON.stringify(reviews)
-    );
+
+
+
+// 1. Supabase से डेटा लाएँ (LocalStorage पूरी तरह बंद)
+async function getReviews() {
+  if (typeof fetchSupabaseReviews === "function") {
+    const data = await fetchSupabaseReviews();
+    return data || [];
+  }
+  return [];
+}
+
+// 2. Supabase में नया रिव्यू सेव करें
+async function saveReviews(reviewsArray) {
+  const reviewObj = Array.isArray(reviewsArray) ? reviewsArray[0] : reviewsArray;
+
+  if (!window.supabaseClient) {
+    console.error("Supabase Client Init नहीं है!");
+    return false;
+  }
+
+  const { data, error } = await window.supabaseClient
+    .from('reviews')
+    .insert([
+      {
+        name: reviewObj.name || "Guest",
+        rating: reviewObj.rating || 5,
+        message: reviewObj.message || reviewObj.comment || "",
+        reply: reviewObj.reply || "",
+        date: reviewObj.date || new Date().toLocaleDateString("hi-IN")
+      }
+    ]);
+
+  if (error) {
+    console.error("Supabase Save Error:", error);
+    alert("रिव्यू सेव करने में त्रुटि: " + error.message);
+    return false;
+  }
+  return true;
+}
+
+// 3. नया रिव्यू पोस्ट करने का फ़ंक्शन
+async function postPublicReview() {
+  const name = getElement("acName") ? getElement("acName").value.trim() : "";
+  const message = getElement("acMsg") ? getElement("acMsg").value.trim() : "";
+
+  if (!name) {
+    alert("कृपया अपना नाम दर्ज करें!");
+    return;
+  }
+
+  if (activeStars === 0) {
+    alert("कृपया कम से कम 1 स्टार रेटिंग चुनें!");
+    return;
+  }
+
+  const newReview = {
+    id: Date.now(),
+    name: name,
+    rating: activeStars,
+    message: message,
+    reply: "",
+    date: new Date().toLocaleDateString("hi-IN")
+  };
+
+  const success = await saveReviews(newReview);
+
+  if (success) {
+    alert("आपकी rating सफलतापूर्वक post हो गई!");
+
+    if (getElement("acName")) getElement("acName").value = "";
+    if (getElement("acMsg")) getElement("acMsg").value = "";
+    if (typeof selectStars === "function") selectStars(0);
+
+    if (typeof loadReviews === "function") {
+      await loadReviews();
+    }
+    if (typeof updateStats === "function") {
+      updateStats();
+    }
+  }
 }
 
 
-function postPublicReview() {
+async function loadReviews() {
 
-    const name =
-        getElement("acName")
-        .value.trim();
-
-    const message =
-        getElement("acMsg")
-        .value.trim();
-
-
-    if (!name) {
-
-        alert("कृपया अपना नाम दर्ज करें।");
-
-        return;
-    }
-
-
-    if (activeStars === 0) {
-
-        alert("कृपया स्टार rating चुनें।");
-
-        return;
-    }
-
-
-    const review = {
-
-        id: Date.now(),
-
-        name: name,
-
-        rating: activeStars,
-
-        message: message,
-
-        reply: "",
-
-        date:
-            new Date()
-            .toLocaleDateString("hi-IN")
-
-    };
-
-
-    const reviews =
-        getReviews();
-
-    reviews.unshift(review);
-
-    saveReviews(reviews);
-
-
-    getElement("acName").value = "";
-    getElement("acMsg").value = "";
-
-    selectStars(0);
-
-    loadReviews();
-    updateStats();
-
-
-    alert(
-        "आपकी rating सफलतापूर्वक post हो गई!"
-    );
-}
-
-
-function loadReviews() {
-
-    const feed =
+    const feed = 
         getElement("acPublicFeed");
+
 
     if (!feed) return;
 
 
-    const reviews =
-        getReviews();
+   const reviews = 
+    await getReviews();
+
 
     feed.innerHTML = "";
 
@@ -3271,6 +3274,12 @@ function loadReviews() {
 
         return;
     }
+
+
+
+
+
+
 
 
     reviews.forEach(
@@ -3732,6 +3741,8 @@ document.addEventListener(
 })();
 </script>
 
+
+
 <!-- ================= AdSense SEO Content / Blog Section (Dark Theme) ================= -->
 <section id="guides" style="max-width: 1100px; margin: 40px auto; padding: 25px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.8; color: #e0e0e0; background-color: #121212; border-radius: 8px; border: 1px solid #2a2a2a; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
   
@@ -3813,7 +3824,7 @@ document.addEventListener(
 </script>
 <!-- ================= End Google AdSense Policy Links ================= -->
 
-    
+
 
 
 </body>
