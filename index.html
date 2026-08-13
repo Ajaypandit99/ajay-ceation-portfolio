@@ -18,10 +18,14 @@
 const SUPABASE_URL = "https://lbjgamsjcpbywgqzbwgh.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_eJ66WqTpEGkaOw7-2IhY8A_4P1XJGk3";
 
-const supabaseClient = supabase.createClient(
+
+     
+window.supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
+     
+     
 </script>
 
 
