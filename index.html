@@ -19,13 +19,15 @@ const SUPABASE_URL = "https://lbjgamsjcpbywgqzbwgh.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_eJ66WqTpEGkaOw7-2IhY8A_4P1XJGk3";
 
 
-     
+
+
 window.supabaseClient = supabase.createClient(
     SUPABASE_URL,
     SUPABASE_ANON_KEY
 );
-     
-     
+
+
+
 </script>
 
 
@@ -63,11 +65,10 @@ window.supabaseClient = supabase.createClient(
           href="https://ajaycreation.netlify.app/">
 
 
-link rel="icon" type="image/jpeg" href="logo01/logo.jpeg">
+<link rel="icon" type="image/jpeg" href="logo01/logo.jpeg">
 <link rel="apple-touch-icon" href="logo01/logo.jpeg">
 
 
-     
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -3155,10 +3156,12 @@ function selectStars(count) {
 
 
 async function fetchSupabaseReviews() {
-    const { data, error } = await supabase
+    if (!window.supabaseClient) return [];
+    
+    const { data, error } = await window.supabaseClient
         .from("reviews")
         .select("*")
-        .order("date", { ascending: false });
+        .order("id", { ascending: false });
 
     if (error) {
         console.error("Reviews load error:", error);
@@ -3483,11 +3486,9 @@ function addOwnerReply(reviewId) {
    REVIEW STATS
 ========================================================= */
 
-function updateStats() {
+async function updateStats() {
 
-    const reviews =
-        getReviews();
-
+    const reviews = (await getReviews()) || [];
     const total =
         reviews.length;
 
