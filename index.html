@@ -3178,11 +3178,10 @@ async function fetchSupabaseReviews() {
 
 // 1. Supabase से डेटा लाएँ (LocalStorage पूरी तरह बंद)
 async function getReviews() {
-  if (typeof fetchSupabaseReviews === "function") {
-    const data = await fetchSupabaseReviews();
-    return data || [];
-  }
-  return [];
+    if (typeof fetchSupabaseReviews === "function") {
+        return await fetchSupabaseReviews();
+    }
+    return [];
 }
 
 // 2. Supabase में नया रिव्यू सेव करें
@@ -3202,7 +3201,7 @@ async function saveReviews(reviewsArray) {
         rating: reviewObj.rating || 5,
         message: reviewObj.message || reviewObj.comment || "",
         reply: reviewObj.reply || "",
-        date: reviewObj.date || new Date().toLocaleDateString("hi-IN")
+        date: reviewObj.date || new Date().toISOString().split('T')[0]
       }
     ]);
 
@@ -3216,44 +3215,50 @@ async function saveReviews(reviewsArray) {
 
 // 3. नया रिव्यू पोस्ट करने का फ़ंक्शन
 async function postPublicReview() {
-  const name = getElement("acName") ? getElement("acName").value.trim() : "";
-  const message = getElement("acMsg") ? getElement("acMsg").value.trim() : "";
+    const name = document.getElementById("acName") ? document.getElementById("acName").value.trim() : "";
+    const message = document.getElementById("acMsg") ? document.getElementById("acMsg").value.trim() : "";
 
-  if (!name) {
-    alert("कृपया अपना नाम दर्ज करें!");
-    return;
-  }
-
-  if (activeStars === 0) {
-    alert("कृपया कम से कम 1 स्टार रेटिंग चुनें!");
-    return;
-  }
-
-  const newReview = {
-    id: Date.now(),
-    name: name,
-    rating: activeStars,
-    message: message,
-    reply: "",
-    date: new Date().toLocaleDateString("hi-IN")
-  };
-
-  const success = await saveReviews(newReview);
-
-  if (success) {
-    alert("आपकी rating सफलतापूर्वक post हो गई!");
-
-    if (getElement("acName")) getElement("acName").value = "";
-    if (getElement("acMsg")) getElement("acMsg").value = "";
-    if (typeof selectStars === "function") selectStars(0);
-
-    if (typeof loadReviews === "function") {
-      await loadReviews();
+    if (!name) {
+        alert("कृपया अपना नाम दर्ज करें!");
+        return;
     }
-    if (typeof updateStats === "function") {
-      updateStats();
+
+    if (activeStars === 0) {
+        alert("कृपया कम से कम 1 स्टार रेटिंग चुनें!");
+        return;
     }
-  }
+
+    const newReview = {
+        id: Date.now(),
+        name: name,
+        rating: activeStars,
+        message: message,
+        reply: "",
+       date: new Date().toISOString().split('T')[0]
+    };
+
+    const success = await saveReviews(newReview);
+
+    if (success) {
+        alert("आपकी रेटिंग सफलतापूर्वक पोस्ट हो गई!");
+
+        // 1. नाम और मैसेज बॉक्स खाली करें
+        if (document.getElementById("acName")) document.getElementById("acName").value = "";
+        if (document.getElementById("acMsg")) document.getElementById("acMsg").value = "";
+
+        // 2. स्टार्स को रीसेट करें
+        if (typeof selectStars === "function") {
+            selectStars(0);
+        }
+
+        // 3. लाइव बोर्ड और स्टैट्स रिफ्रेश करें
+        if (typeof loadReviews === "function") {
+            await loadReviews();
+        }
+        if (typeof updateStats === "function") {
+            await updateStats();
+        }
+    }
 }
 
 
